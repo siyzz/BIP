@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9F5C1D29-494B-4EB1-A4B7-CBA7185D31D4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>com.ccf.bip.framework</RootNamespace>
+    <AssemblyName>BIPFramework</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\Release\BIPFramework.XML</DocumentationFile>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Hessiancsharp, Version=1.3.3567.1464, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics2.Shared.v9.2, Version=9.2.20092.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics2.Win.Misc.v9.2, Version=9.2.20092.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics2.Win.UltraWinEditors.v9.2, Version=9.2.20092.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics2.Win.UltraWinToolbars.v9.2, Version=9.2.20092.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics2.Win.UltraWinTree.v9.2, Version=9.2.20092.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics2.Win.v9.2, Version=9.2.20092.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="core\BipConfig.cs" />
+    <Compile Include="core\Crc32.cs" />
+    <Compile Include="core\BipGuid.cs" />
+    <Compile Include="core\Globals.cs" />
+    <Compile Include="core\Enums.cs" />
+    <Compile Include="core\ServerInfo.cs" />
+    <Compile Include="core\Win32API.cs" />
+    <Compile Include="entity\ServerStatus.cs" />
+    <Compile Include="entity\SysDictionary.cs" />
+    <Compile Include="entity\SysEmployee.cs" />
+    <Compile Include="entity\SysFunction.cs" />
+    <Compile Include="entity\SysOrganization.cs" />
+    <Compile Include="entity\SysPost.cs" />
+    <Compile Include="entity\SysRole.cs" />
+    <Compile Include="entity\SysUser.cs" />
+    <Compile Include="form\BipForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="core\BipAction.cs" />
+    <Compile Include="core\BipException.cs" />
+    <Compile Include="core\ParameterInfo.cs" />
+    <Compile Include="core\ReturnInfo.cs" />
+    <Compile Include="form\BipStyleBuilder.cs" />
+    <Compile Include="form\control\BipImageList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="form\control\BipImageList.Designer.cs">
+      <DependentUpon>BipImageList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form\control\BipTableView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="form\control\BipTableView.Designer.cs">
+      <DependentUpon>BipTableView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form\control\ComboBoxTree.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="form\control\ImageViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\control\ImageViewer.Designer.cs">
+      <DependentUpon>ImageViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form\helper\ControlHelper.cs" />
+    <Compile Include="form\helper\UltraTreeHelper.cs" />
+    <Compile Include="form\KeyBoardHook.cs" />
+    <Compile Include="form\MouseHook.cs" />
+    <Compile Include="form\ResourceImg.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ResourceImg.resx</DependentUpon>
+    </Compile>
+    <Compile Include="hessian\HessianConnection.cs" />
+    <Compile Include="hessian\HessianConnectionFactory.cs" />
+    <Compile Include="hessian\IHessianController.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="server\Dictionary.cs" />
+    <Compile Include="util\FileUtil.cs" />
+    <Compile Include="util\ImageUtil.cs" />
+    <Compile Include="util\JSONUtil.cs" />
+    <Compile Include="util\NetworkUtil.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="form\control\BipImageList.resx">
+      <DependentUpon>BipImageList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\control\BipTableView.resx">
+      <DependentUpon>BipTableView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\control\ImageViewer.resx">
+      <DependentUpon>ImageViewer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\ResourceImg.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResourceImg.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

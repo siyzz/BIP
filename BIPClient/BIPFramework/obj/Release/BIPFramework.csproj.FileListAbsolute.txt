@@ -1,0 +1,6 @@
+F:\My Documents\Visual Studio 2008\Projects\BIP\Release\BIPFramework.XML
+F:\My Documents\Visual Studio 2008\Projects\BIP\Release\BIPFramework.dll
+F:\My Documents\Visual Studio 2008\Projects\BIP\Release\BIPFramework.pdb
+F:\My Documents\Visual Studio 2008\Projects\BIP\BIPFramework\obj\Release\ResolveAssemblyReference.cache
+F:\My Documents\Visual Studio 2008\Projects\BIP\BIPFramework\obj\Release\BIPFramework.dll
+F:\My Documents\Visual Studio 2008\Projects\BIP\BIPFramework\obj\Release\BIPFramework.pdb

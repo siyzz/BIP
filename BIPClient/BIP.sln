@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BIP", "BIP\BIP.csproj", "{6B193F48-F0EB-4D33-9B35-6C517D6E38A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BIPFramework", "BIPFramework\BIPFramework.csproj", "{9F5C1D29-494B-4EB1-A4B7-CBA7185D31D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BIPBiz", "BIPBiz\BIPBiz.csproj", "{DEA17E52-F19A-472A-9006-F3576B6A5E91}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6B193F48-F0EB-4D33-9B35-6C517D6E38A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B193F48-F0EB-4D33-9B35-6C517D6E38A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B193F48-F0EB-4D33-9B35-6C517D6E38A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B193F48-F0EB-4D33-9B35-6C517D6E38A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F5C1D29-494B-4EB1-A4B7-CBA7185D31D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F5C1D29-494B-4EB1-A4B7-CBA7185D31D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F5C1D29-494B-4EB1-A4B7-CBA7185D31D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F5C1D29-494B-4EB1-A4B7-CBA7185D31D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEA17E52-F19A-472A-9006-F3576B6A5E91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEA17E52-F19A-472A-9006-F3576B6A5E91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEA17E52-F19A-472A-9006-F3576B6A5E91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEA17E52-F19A-472A-9006-F3576B6A5E91}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

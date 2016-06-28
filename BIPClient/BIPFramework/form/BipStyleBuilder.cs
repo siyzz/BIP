@@ -1,0 +1,16 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Drawing;
+
+namespace com.ccf.bip.framework.form
+{
+    public class BipStyleBuilder
+    {
+        public static void SetFormStyle(BipForm form)
+        {
+            form.BackColor = Color.LightBlue;
+        }
+    }
+}

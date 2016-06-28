@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DEA17E52-F19A-472A-9006-F3576B6A5E91}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>com.ccf.bip.biz</RootNamespace>
+    <AssemblyName>BIPBiz</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BIPFramework, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Debug\BIPFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics2.Shared.v9.2, Version=9.2.20092.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics2.Win.Misc.v9.2, Version=9.2.20092.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics2.Win.UltraWinEditors.v9.2, Version=9.2.20092.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics2.Win.UltraWinGrid.v9.2, Version=9.2.20092.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics2.Win.UltraWinListBar.v9.2, Version=9.2.20092.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics2.Win.UltraWinListView.v9.2, Version=9.2.20092.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics2.Win.UltraWinTabControl.v9.2, Version=9.2.20092.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics2.Win.UltraWinToolbars.v9.2, Version=9.2.20092.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics2.Win.UltraWinTree.v9.2, Version=9.2.20092.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics2.Win.v9.2, Version=9.2.20092.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="meta\FormOrganization.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="meta\FormOrganization.Designer.cs">
+      <DependentUpon>FormOrganization.cs</DependentUpon>
+    </Compile>
+    <Compile Include="meta\DlgOrgEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="meta\DlgOrgEdit.Designer.cs">
+      <DependentUpon>DlgOrgEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="meta\DlgEmployeeEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="meta\DlgEmployeeEdit.Designer.cs">
+      <DependentUpon>DlgEmployeeEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ResourceImg.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ResourceImg.resx</DependentUpon>
+    </Compile>
+    <Compile Include="sys\DlgBipFormPicker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sys\DlgBipFormPicker.Designer.cs">
+      <DependentUpon>DlgBipFormPicker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sys\DlgPostEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sys\DlgPostEdit.Designer.cs">
+      <DependentUpon>DlgPostEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sys\DlgRoleEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sys\DlgRoleEdit.Designer.cs">
+      <DependentUpon>DlgRoleEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sys\FormDataAuthority.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sys\FormDataAuthority.Designer.cs">
+      <DependentUpon>FormDataAuthority.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sys\FormFunction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sys\FormFunction.Designer.cs">
+      <DependentUpon>FormFunction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sys\FormPost.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sys\FormPost.Designer.cs">
+      <DependentUpon>FormPost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sys\FormRole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sys\FormRole.Designer.cs">
+      <DependentUpon>FormRole.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="meta\FormOrganization.resx">
+      <DependentUpon>FormOrganization.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="meta\DlgOrgEdit.resx">
+      <DependentUpon>DlgOrgEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="meta\DlgEmployeeEdit.resx">
+      <DependentUpon>DlgEmployeeEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResourceImg.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResourceImg.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sys\DlgBipFormPicker.resx">
+      <DependentUpon>DlgBipFormPicker.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sys\DlgPostEdit.resx">
+      <DependentUpon>DlgPostEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sys\DlgRoleEdit.resx">
+      <DependentUpon>DlgRoleEdit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sys\FormDataAuthority.resx">
+      <DependentUpon>FormDataAuthority.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sys\FormFunction.resx">
+      <DependentUpon>FormFunction.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sys\FormPost.resx">
+      <DependentUpon>FormPost.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sys\FormRole.resx">
+      <DependentUpon>FormRole.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\com.ccf.bip.biz.metadata.org.mapper.SysOrganization.datasource" />
+    <None Include="Properties\DataSources\com.ccf.bip.biz.system.authorization.mapper.SysFunction.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addRoot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\addSub.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\com.ccf.bip.biz.metadata.employee.mapper.SysEmployee.datasource" />
+    <None Include="Resources\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\com.ccf.bip.biz.system.authorization.mapper.SysPost.datasource" />
+    <None Include="Properties\DataSources\com.ccf.bip.biz.system.user.mapper.SysUser.datasource" />
+    <None Include="Resources\Up.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
