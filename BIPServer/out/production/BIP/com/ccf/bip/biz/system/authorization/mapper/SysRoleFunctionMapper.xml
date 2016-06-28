@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ccf.bip.biz.system.authorization.mapper.SysRoleFunctionMapper" >
+  <resultMap id="BaseResultMap" type="com.ccf.bip.biz.system.authorization.mapper.SysRoleFunction" >
+    <id column="RELATION_ID" property="relationId" jdbcType="VARCHAR" />
+    <result column="ROLE_ID" property="roleId" jdbcType="VARCHAR" />
+    <result column="FUNCTION_ID" property="functionId" jdbcType="VARCHAR" />
+    <result column="PARENT_FUNCTION_ID" property="parentFunctionId" jdbcType="VARCHAR" />
+    <result column="FUNCTION_SEQ" property="functionSeq" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    RELATION_ID, ROLE_ID, FUNCTION_ID, PARENT_FUNCTION_ID, FUNCTION_SEQ
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from SYS_ROLE_FUNCTION
+    where RELATION_ID = #{relationId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from SYS_ROLE_FUNCTION
+    where RELATION_ID = #{relationId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByRoleId" parameterType="java.lang.String" >
+    delete from SYS_ROLE_FUNCTION
+    where ROLE_ID = #{roleId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.ccf.bip.biz.system.authorization.mapper.SysRoleFunction" >
+    insert into SYS_ROLE_FUNCTION (RELATION_ID, ROLE_ID, FUNCTION_ID,
+      PARENT_FUNCTION_ID, FUNCTION_SEQ)
+    values (#{relationId,jdbcType=VARCHAR}, #{roleId,jdbcType=VARCHAR}, #{functionId,jdbcType=VARCHAR},
+      #{parentFunctionId,jdbcType=VARCHAR}, #{functionSeq,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ccf.bip.biz.system.authorization.mapper.SysRoleFunction" >
+    insert into SYS_ROLE_FUNCTION
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="relationId != null" >
+        RELATION_ID,
+      </if>
+      <if test="roleId != null" >
+        ROLE_ID,
+      </if>
+      <if test="functionId != null" >
+        FUNCTION_ID,
+      </if>
+      <if test="parentFunctionId != null" >
+        PARENT_FUNCTION_ID,
+      </if>
+      <if test="functionSeq != null" >
+        FUNCTION_SEQ,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="relationId != null" >
+        #{relationId,jdbcType=VARCHAR},
+      </if>
+      <if test="roleId != null" >
+        #{roleId,jdbcType=VARCHAR},
+      </if>
+      <if test="functionId != null" >
+        #{functionId,jdbcType=VARCHAR},
+      </if>
+      <if test="parentFunctionId != null" >
+        #{parentFunctionId,jdbcType=VARCHAR},
+      </if>
+      <if test="functionSeq != null" >
+        #{functionSeq,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ccf.bip.biz.system.authorization.mapper.SysRoleFunction" >
+    update SYS_ROLE_FUNCTION
+    <set >
+      <if test="roleId != null" >
+        ROLE_ID = #{roleId,jdbcType=VARCHAR},
+      </if>
+      <if test="functionId != null" >
+        FUNCTION_ID = #{functionId,jdbcType=VARCHAR},
+      </if>
+      <if test="parentFunctionId != null" >
+        PARENT_FUNCTION_ID = #{parentFunctionId,jdbcType=VARCHAR},
+      </if>
+      <if test="functionSeq != null" >
+        FUNCTION_SEQ = #{functionSeq,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where RELATION_ID = #{relationId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ccf.bip.biz.system.authorization.mapper.SysRoleFunction" >
+    update SYS_ROLE_FUNCTION
+    set ROLE_ID = #{roleId,jdbcType=VARCHAR},
+      FUNCTION_ID = #{functionId,jdbcType=VARCHAR},
+      PARENT_FUNCTION_ID = #{parentFunctionId,jdbcType=VARCHAR},
+      FUNCTION_SEQ = #{functionSeq,jdbcType=DECIMAL}
+    where RELATION_ID = #{relationId,jdbcType=VARCHAR}
+  </update>
+</mapper>

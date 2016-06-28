@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ccf.bip.biz.system.authorization.mapper.SysFunctionMapper" >
+  <resultMap id="BaseResultMap" type="com.ccf.bip.biz.system.authorization.mapper.SysFunction" >
+    <id column="FUNCTION_ID" property="functionId" jdbcType="VARCHAR" />
+    <id column="KEY" property="key" jdbcType="VARCHAR" />
+    <result column="FUNCTION_NAME" property="functionName" jdbcType="VARCHAR" />
+    <result column="PARENT_ID" property="parentId" jdbcType="VARCHAR" />
+    <result column="FUNCTION_TYPE" property="functionType" jdbcType="VARCHAR" />
+    <result column="SERVER_NAME" property="serverName" jdbcType="VARCHAR" />
+    <result column="URL" property="url" jdbcType="VARCHAR" />
+    <result column="IMAGE" property="image" jdbcType="VARCHAR" />
+    <result column="TAG" property="tag" jdbcType="VARCHAR" />
+    <result column="SEQ" property="seq" jdbcType="DECIMAL" />
+    <result column="ASSEMBLY_NAME" property="assemblyname" jdbcType="VARCHAR" />
+    <result column="SHOW_TOOLBAR" property="showToolBar" jdbcType="CHAR" javaType="Boolean" typeHandler="com.ccf.bip.framework.orm.mybatis.BooleanTypeHandler" />
+    <result column="USE_HOTKEY" property="useHotKey" jdbcType="CHAR" javaType="Boolean" typeHandler="com.ccf.bip.framework.orm.mybatis.BooleanTypeHandler" />
+    <result column="FORM_TYPE" property="formType" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    FUNCTION_ID, KEY, FUNCTION_NAME, PARENT_ID, FUNCTION_TYPE, SERVER_NAME, URL, IMAGE, TAG, 
+    SEQ, ASSEMBLY_NAME, SHOW_TOOLBAR, USE_HOTKEY, FORM_TYPE
+  </sql>
+  <select id="selectBySuperAdmin" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    <![CDATA[from SYS_FUNCTION WHERE FUNCTION_TYPE <> '1015']]>
+    order by FUNCTION_TYPE,SEQ
+  </select>
+  <select id="selectByUser" resultMap="BaseResultMap">
+     <![CDATA[
+     SELECT F.FUNCTION_ID,
+            F.KEY,
+            F.FUNCTION_NAME,
+            F.PARENT_ID,
+            F.FUNCTION_TYPE,
+            F.SERVER_NAME,
+            F.URL,
+            F.IMAGE,
+            F.TAG,
+            R.FUNCTION_SEQ SEQ,
+            F.ASSEMBLY_NAME,
+            F.SHOW_TOOLBAR,
+            F.USE_HOTKEY,
+            F.FORM_TYPE
+      FROM SYS_ROLE_FUNCTION R, SYS_FUNCTION F
+     WHERE R.FUNCTION_ID = F.FUNCTION_ID
+       AND R.ROLE_ID in(
+             SELECT distinct p.role_id
+                FROM SYS_POST P, SYS_EMPLOYEE_POST R
+               WHERE P.POST_ID = R.POST_ID
+                 AND R.EMPLOYEE_ID = #{employeeId,jdbcType=VARCHAR}
+       )
+       AND F.FUNCTION_TYPE <> '1015'
+     ORDER BY F.FUNCTION_TYPE ,R.FUNCTION_SEQ
+    ]]>
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+      from SYS_FUNCTION
+     order by FUNCTION_TYPE,SEQ
+  </select>
+  <select id="selectButtonList" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select 
+    <include refid="Base_Column_List" />
+    <![CDATA[
+      from SYS_FUNCTION WHERE FUNCTION_TYPE = '1015' 
+       and PARENT_ID = #{parentId,jdbcType=VARCHAR}
+     order by SEQ
+    ]]>  
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from SYS_FUNCTION
+    where FUNCTION_ID = #{functionId,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAuthor" resultMap="BaseResultMap" parameterType="java.lang.String">
+    SELECT F.FUNCTION_ID,
+            F.KEY,
+            F.FUNCTION_NAME,
+            F.PARENT_ID,
+            F.FUNCTION_TYPE,
+            F.SERVER_NAME,
+            F.URL,
+            F.IMAGE,
+            F.TAG,
+            R.FUNCTION_SEQ SEQ,
+            F.ASSEMBLY_NAME,
+            F.SHOW_TOOLBAR,
+            F.USE_HOTKEY,
+            F.FORM_TYPE
+      FROM SYS_ROLE_FUNCTION R, SYS_FUNCTION F
+     WHERE R.FUNCTION_ID = F.FUNCTION_ID
+       AND R.ROLE_ID = #{roleId,jdbcType=VARCHAR}
+     ORDER BY F.FUNCTION_TYPE ,R.FUNCTION_SEQ
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from SYS_FUNCTION
+    where FUNCTION_ID = #{functionId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByParentId" parameterType="java.lang.String" >
+    delete from SYS_FUNCTION
+    where PARENT_ID = #{parentId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.ccf.bip.biz.system.authorization.mapper.SysFunction" >
+    insert into SYS_FUNCTION (FUNCTION_ID, KEY, FUNCTION_NAME, PARENT_ID, 
+      FUNCTION_TYPE, SERVER_NAME, URL, 
+      IMAGE, TAG, SEQ, ASSEMBLY_NAME, SHOW_TOOLBAR, USE_HOTKEY, FORM_TYPE)
+    values (#{functionId,jdbcType=VARCHAR}, #{key,jdbcType=VARCHAR}, #{functionName,jdbcType=VARCHAR}, #{parentId,jdbcType=VARCHAR}, 
+      #{functionType,jdbcType=VARCHAR}, #{serverName,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, 
+      #{image,jdbcType=VARCHAR}, #{tag,jdbcType=VARCHAR}, #{seq,jdbcType=DECIMAL}, #{assemblyname,jdbcType=VARCHAR},
+      #{showToolBar,typeHandler=com.ccf.bip.framework.orm.mybatis.BooleanTypeHandler}, #{useHotKey,typeHandler=com.ccf.bip.framework.orm.mybatis.BooleanTypeHandler}, #{formType,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ccf.bip.biz.system.authorization.mapper.SysFunction" >
+    insert into SYS_FUNCTION
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="functionId != null" >
+        FUNCTION_ID,
+      </if>
+      <if test="key != null" >
+        KEY,
+      </if>
+      <if test="functionName != null" >
+        FUNCTION_NAME,
+      </if>
+      <if test="parentId != null" >
+        PARENT_ID,
+      </if>
+      <if test="functionType != null" >
+        FUNCTION_TYPE,
+      </if>
+      <if test="serverName != null" >
+        SERVER_NAME,
+      </if>
+      <if test="url != null" >
+        URL,
+      </if>
+      <if test="image != null" >
+        IMAGE,
+      </if>
+      <if test="tag != null" >
+        TAG,
+      </if>
+      <if test="seq != null" >
+        SEQ,
+      </if>
+      <if test="assemblyname != null" >
+        ASSEMBLY_NAME,
+      </if>
+      <if test="showToolBar != null" >
+        SHOW_TOOLBAR,
+      </if>
+      <if test="useHotKey != null" >
+        USE_HOTKEY,
+      </if>
+      <if test="formType != null" >
+        FORM_TYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="functionId != null" >
+        #{functionId,jdbcType=VARCHAR},
+      </if>
+      <if test="key != null" >
+        #{key,jdbcType=VARCHAR},
+      </if>
+      <if test="functionName != null" >
+        #{functionName,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null" >
+        #{parentId,jdbcType=VARCHAR},
+      </if>
+      <if test="functionType != null" >
+        #{functionType,jdbcType=VARCHAR},
+      </if>
+      <if test="serverName != null" >
+        #{serverName,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null" >
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="image != null" >
+        #{image,jdbcType=VARCHAR},
+      </if>
+      <if test="tag != null" >
+        #{tag,jdbcType=VARCHAR},
+      </if>
+      <if test="seq != null" >
+        #{seq,jdbcType=DECIMAL},
+      </if>
+      <if test="assemblyname != null" >
+        #{assemblyname,jdbcType=VARCHAR},
+      </if>
+      <if test="showToolBar != null" >
+        #{showToolBar,typeHandler=com.ccf.bip.framework.orm.mybatis.BooleanTypeHandler},
+      </if>
+      <if test="useHotKey != null" >
+        #{useHotKey,typeHandler=com.ccf.bip.framework.orm.mybatis.BooleanTypeHandler},
+      </if>
+      <if test="formType != null" >
+        #{formType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ccf.bip.biz.system.authorization.mapper.SysFunction" >
+    update SYS_FUNCTION
+    <set >
+      <if test="functionName != null" >
+        KEY = #{key,jdbcType=VARCHAR},
+      </if>
+      <if test="functionName != null" >
+        FUNCTION_NAME = #{functionName,jdbcType=VARCHAR},
+      </if>
+      <if test="parentId != null" >
+        PARENT_ID = #{parentId,jdbcType=VARCHAR},
+      </if>
+      <if test="functionType != null" >
+        FUNCTION_TYPE = #{functionType,jdbcType=VARCHAR},
+      </if>
+      <if test="serverName != null" >
+        SERVER_NAME = #{serverName,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null" >
+        URL = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="image != null" >
+        IMAGE = #{image,jdbcType=VARCHAR},
+      </if>
+      <if test="tag != null" >
+        TAG = #{tag,jdbcType=VARCHAR},
+      </if>
+      <if test="seq != null" >
+        SEQ = #{seq,jdbcType=DECIMAL},
+      </if>
+      <if test="assemblyname != null" >
+        ASSEMBLY_NAME = #{assemblyname,jdbcType=VARCHAR},
+      </if>
+      <if test="showToolBar != null" >
+        SHOW_TOOLBAR = #{showToolBar,typeHandler=com.ccf.bip.framework.orm.mybatis.BooleanTypeHandler},
+      </if>
+      <if test="useHotKey != null" >
+        USE_HOTKEY = #{useHotKey,typeHandler=com.ccf.bip.framework.orm.mybatis.BooleanTypeHandler},
+      </if>
+      <if test="formType != null" >
+        FORM_TYPE = #{formType,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where FUNCTION_ID = #{functionId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ccf.bip.biz.system.authorization.mapper.SysFunction" >
+    update SYS_FUNCTION
+    set KEY = #{key,jdbcType=VARCHAR},
+      FUNCTION_NAME = #{functionName,jdbcType=VARCHAR},
+      PARENT_ID = #{parentId,jdbcType=VARCHAR},
+      FUNCTION_TYPE = #{functionType,jdbcType=VARCHAR},
+      SERVER_NAME = #{serverName,jdbcType=VARCHAR},
+      URL = #{url,jdbcType=VARCHAR},
+      IMAGE = #{image,jdbcType=VARCHAR},
+      TAG = #{tag,jdbcType=VARCHAR},
+      SEQ = #{seq,jdbcType=DECIMAL},
+      ASSEMBLY_NAME = #{assemblyname,jdbcType=VARCHAR},
+      SHOW_TOOLBAR = #{showToolBar,typeHandler=com.ccf.bip.framework.orm.mybatis.BooleanTypeHandler},
+      USE_HOTKEY = #{useHotKey,typeHandler=com.ccf.bip.framework.orm.mybatis.BooleanTypeHandler},
+      FORM_TYPE = #{formType,jdbcType=VARCHAR}
+    where FUNCTION_ID = #{functionId,jdbcType=VARCHAR}
+  </update>
+  <select id="hasChildren" resultType="java.lang.Integer" parameterType="java.lang.String">
+    <![CDATA[
+    select count(1) from SYS_FUNCTION WHERE PARENT_ID = #{parentId,jdbcType=VARCHAR}
+    ]]>  
+  </select>
+  <update id="updateButton" parameterType="com.ccf.bip.biz.system.authorization.mapper.SysFunction">
+    update SYS_FUNCTION
+    set KEY = #{key,jdbcType=VARCHAR},
+      FUNCTION_NAME = #{functionName,jdbcType=VARCHAR},
+      IMAGE = #{image,jdbcType=VARCHAR},
+      SEQ = #{seq,jdbcType=DECIMAL}
+    where FUNCTION_ID = #{functionId,jdbcType=VARCHAR}
+  </update>
+</mapper>

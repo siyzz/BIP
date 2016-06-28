@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ccf.bip.biz.system.authorization.mapper.SysEmployeePostMapper" >
+  <resultMap id="BaseResultMap" type="com.ccf.bip.biz.system.authorization.mapper.SysEmployeePost" >
+    <id column="EMPLOYEE_POST_ID" property="employeePostId" jdbcType="VARCHAR" />
+    <result column="EMPLOYEE_ID" property="employeeId" jdbcType="VARCHAR" />
+    <result column="POST_ID" property="postId" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    EMPLOYEE_POST_ID, EMPLOYEE_ID, POST_ID
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from SYS_EMPLOYEE_POST
+    where EMPLOYEE_POST_ID = #{employeePostId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from SYS_EMPLOYEE_POST
+    where EMPLOYEE_POST_ID = #{employeePostId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.ccf.bip.biz.system.authorization.mapper.SysEmployeePost" >
+    insert into SYS_EMPLOYEE_POST (EMPLOYEE_POST_ID, EMPLOYEE_ID, POST_ID
+      )
+    values (#{employeePostId,jdbcType=VARCHAR}, #{employeeId,jdbcType=VARCHAR}, #{postId,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ccf.bip.biz.system.authorization.mapper.SysEmployeePost" >
+    insert into SYS_EMPLOYEE_POST
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="employeePostId != null" >
+        EMPLOYEE_POST_ID,
+      </if>
+      <if test="employeeId != null" >
+        EMPLOYEE_ID,
+      </if>
+      <if test="postId != null" >
+        POST_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="employeePostId != null" >
+        #{employeePostId,jdbcType=VARCHAR},
+      </if>
+      <if test="employeeId != null" >
+        #{employeeId,jdbcType=VARCHAR},
+      </if>
+      <if test="postId != null" >
+        #{postId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ccf.bip.biz.system.authorization.mapper.SysEmployeePost" >
+    update SYS_EMPLOYEE_POST
+    <set >
+      <if test="employeeId != null" >
+        EMPLOYEE_ID = #{employeeId,jdbcType=VARCHAR},
+      </if>
+      <if test="postId != null" >
+        POST_ID = #{postId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where EMPLOYEE_POST_ID = #{employeePostId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ccf.bip.biz.system.authorization.mapper.SysEmployeePost" >
+    update SYS_EMPLOYEE_POST
+    set EMPLOYEE_ID = #{employeeId,jdbcType=VARCHAR},
+      POST_ID = #{postId,jdbcType=VARCHAR}
+    where EMPLOYEE_POST_ID = #{employeePostId,jdbcType=VARCHAR}
+  </update>
+</mapper>

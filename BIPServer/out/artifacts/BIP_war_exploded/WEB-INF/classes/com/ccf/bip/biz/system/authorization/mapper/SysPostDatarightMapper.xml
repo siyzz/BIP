@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ccf.bip.biz.system.authorization.mapper.SysPostDatarightMapper" >
+  <resultMap id="BaseResultMap" type="com.ccf.bip.biz.system.authorization.mapper.SysPostDataright" >
+    <id column="DATARIGHT_ID" property="datarightId" jdbcType="VARCHAR" />
+    <result column="POST_ID" property="postId" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    DATARIGHT_ID, POST_ID
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from SYS_POST_DATARIGHT
+    where DATARIGHT_ID = #{datarightId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from SYS_POST_DATARIGHT
+    where DATARIGHT_ID = #{datarightId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.ccf.bip.biz.system.authorization.mapper.SysPostDataright" >
+    insert into SYS_POST_DATARIGHT (DATARIGHT_ID, POST_ID)
+    values (#{datarightId,jdbcType=VARCHAR}, #{postId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ccf.bip.biz.system.authorization.mapper.SysPostDataright" >
+    insert into SYS_POST_DATARIGHT
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="datarightId != null" >
+        DATARIGHT_ID,
+      </if>
+      <if test="postId != null" >
+        POST_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="datarightId != null" >
+        #{datarightId,jdbcType=VARCHAR},
+      </if>
+      <if test="postId != null" >
+        #{postId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ccf.bip.biz.system.authorization.mapper.SysPostDataright" >
+    update SYS_POST_DATARIGHT
+    <set >
+      <if test="postId != null" >
+        POST_ID = #{postId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where DATARIGHT_ID = #{datarightId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ccf.bip.biz.system.authorization.mapper.SysPostDataright" >
+    update SYS_POST_DATARIGHT
+    set POST_ID = #{postId,jdbcType=VARCHAR}
+    where DATARIGHT_ID = #{datarightId,jdbcType=VARCHAR}
+  </update>
+  <select id="selectPostDataRightByFormId" resultType="java.util.HashMap" parameterType="java.lang.String">
+    select p.post_id, p.post_code, p.post_name, o.organization_name,'false' filterOrg,'false' filterUser
+    from sys_post p, sys_role_function rf, sys_function f, sys_organization o
+    where p.role_id = rf.role_id
+    and rf.function_id = f.function_id
+    and p.post_org_id = o.organization_id
+    and f.function_type = '1014'
+    and f.function_id = #{formId,jdbcType=VARCHAR}
+  </select>
+  <select id="selectEmployeeDataRightByFormId" resultType="java.util.HashMap" parameterType="java.lang.String">
+    select e.employee_id, e.employee_code, e.employee_name, o.organization_name, p.post_id,'false' FilterOrg,'false' FilterUser
+       from sys_post          p,
+             sys_role_function rf,
+             sys_function      f,
+             sys_organization  o,
+             sys_employee      e,
+             sys_employee_post ep
+      where p.role_id = rf.role_id
+        and rf.function_id = f.function_id
+        and ep.employee_id = e.employee_id
+        and ep.post_id = p.post_id
+        and e.organization_id = o.organization_id
+        and f.function_type = '1014'
+        and f.function_id = #{formId,jdbcType=VARCHAR}
+  </select>
+</mapper>

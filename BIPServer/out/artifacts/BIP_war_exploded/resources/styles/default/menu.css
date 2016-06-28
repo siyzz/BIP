@@ -1,0 +1,43 @@
+.dms16x16 {
+	background-image: url('../images/menu/dms16x16.gif') !important;
+}
+
+.pcm16x16 {
+	background-image: url('../images/menu/pcm16x16.gif') !important;
+}
+
+.pms16x16 {
+	background-image: url('../images/menu/pms16x16.gif') !important;
+}
+
+.qms16x16 {
+	background-image: url('../images/menu/qms16x16.gif') !important;
+}
+
+.sms16x16 {
+	background-image: url('../images/menu/sms16x16.gif') !important;
+}
+
+.sys16x16 {
+	background-image: url('../images/menu/sys16x16.gif') !important;
+}
+
+.basedata {
+	background-image: url('../images/menu/basedata.gif') !important;
+}
+
+.prod16x16 {
+	background-image: url('../images/menu/prod16x16.gif') !important;
+}
+
+.resource {
+	background-image: url('../images/menu/resource.gif') !important;
+}
+
+.wbs16x16 {
+	background-image: url('../images/menu/wbs16x16.gif') !important;
+}
+
+.order16x16 {
+	background-image: url('../images/menu/order16x16.gif') !important;
+}
