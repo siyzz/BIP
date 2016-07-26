@@ -5,54 +5,73 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Windows.Forms;
-using com.ccf.bip.framework.core;
 using com.ccf.bip.framework.form;
-using com.ccf.bip.framework.util;
+using com.ccf.bip.framework.core;
+using System.Threading;
 using com.ccf.bip.biz.system.user.mapper;
+using com.ccf.bip.framework.util;
 
 namespace com.ccf.bip.frame
 {
-    public partial class FormLogin : BipForm
+    public partial class FormLogin : BipMetroForm
     {
         private Thread _loginThread;
         private bool _isLogining = false;
         private delegate void LoginDelegate(SysUser user);
         private delegate void ErrorDelegate(string msg);
+        private bool lockSystem = false;//是否锁定系统
+        public bool LockSystem
+        {
+            get { return lockSystem; }
+            set { lockSystem = value; }
+        }
 
         public FormLogin()
         {
             InitializeComponent();
-            PaintWindow();
         }
 
-        private void FormLogin_Load(object sender, EventArgs e)
-        {            
+        private void ThreadLogin()
+        {
+            if (!_isLogining)
+            {
+                pictureBox1.Enabled = false;
+                lblMsg.Text = "";
+                _loginThread = new Thread(new ThreadStart(Login));
+                _loginThread.Start();
+            }
+        }
+
+        private bool ValidLogin()
+        {
+            bool result = true;
+
+            if (String.IsNullOrEmpty(txtAccount.Text.Trim()))
+            {
+                lblMsg.Text = "请输入帐号！";
+                txtAccount.Focus();
+                result = false;
+            }
+            else if (String.IsNullOrEmpty(txtPassword.Text.Trim()))
+            {
+                lblMsg.Text = "请输入密码！";
+                txtPassword.Focus();
+                result = false;
+            }
+
+            return result;
+        }
+
+        private void FormLogin2_Load(object sender, EventArgs e)
+        {
             ReadConfig();
-
-            OpenDevolopMode();
-        }
-
-        private void OpenDevolopMode()
-        {
-            this.txtAccount.Text = "admin";
-            this.txtPassword.Text = "1";
-            ThreadLogin();
-        }
-
-        private void PaintWindow()
-        {
-            this.BackgroundImage = Image.FromFile(Globals.AppPath+"\\resource\\image\\loginBackground.jpg");
-            this.BackgroundImageLayout = ImageLayout.Stretch;
-            this.btnLogin.Image = ImageUtil.GetPart(Globals.AppPath + "\\resource\\image\\loginBackground.jpg", 0, 0, 65, 38, 104, 184);
-            this.btnCancel.Image = ImageUtil.GetPart(Globals.AppPath + "\\resource\\image\\loginBackground.jpg", 0, 0, 65, 38, 179, 184);
         }
 
         private void ReadConfig()
         {
-            List<ServerInfo> list = BipConfig.Load<ServerInfo>(Globals.ServerConfigName);
-            ServerInfo defaultServer = list.Find(s => s.Id == 0);
+            List<ServerConfig> list = BipConfig.Load<ServerConfig>(Globals.ServerConfigName);
+            ServerConfig defaultServer = list.Find(s => s.Id == 0);
             Globals.ServerList = list;
             this.Action = new BipAction();
             Action.Url = defaultServer.Url;
@@ -70,16 +89,18 @@ namespace com.ccf.bip.frame
                     SysUser loginUser = new SysUser();
                     loginUser.UserAccount = txtAccount.Text.Trim();
                     loginUser.UserPassword = txtPassword.Text.Trim();
-                    user = this.FindOne<SysUser>("com.ccf.bip.biz.system.user.service.UserService", "login", new object[] { loginUser });
+                    List<Object> list = this.FindList<Object>("com.ccf.bip.biz.system.user.service.UserService", "login", new object[] { loginUser });
+                    user = list[0] as SysUser;
+                    Globals.Tocken = list[1].ToString();
                     //Thread.Sleep(3000);
+                    LoginDelegate deg = new LoginDelegate(CompleteLogin);
+                    this.Invoke(deg, user);
                 }
                 catch (Exception ex)
                 {
                     ErrorDelegate errDeg = new ErrorDelegate(OnError);
                     this.Invoke(errDeg, ex.Message);
-                }
-                LoginDelegate deg = new LoginDelegate(CompleteLogin);
-                this.Invoke(deg, user);
+                }                
             }
         }
 
@@ -87,6 +108,8 @@ namespace com.ccf.bip.frame
         {
             //MessageBox.Show(msg);
             lblMsg.Text = msg;
+            _isLogining = false;
+            pictureBox1.Enabled = true;
         }
 
         private void CompleteLogin(SysUser user)
@@ -98,100 +121,80 @@ namespace com.ccf.bip.frame
                 this.Close();
             }
 
-            timerProgress.Stop();
-            progressBarLogin.Value = 0;
             _isLogining = false;
+            pictureBox1.Enabled = true;
         }
 
-        private void timerProgress_Tick(object sender, EventArgs e)
+        private void txtAccount_KeyDown(object sender, KeyEventArgs e)
         {
-            System.Windows.Forms.Timer timer = sender as System.Windows.Forms.Timer;
-            this.progressBarLogin.Value++;
-            if (this.progressBarLogin.Value == progressBarLogin.Maximum)
+            switch (e.KeyCode)
             {
-                this.progressBarLogin.Value = 0;
-                timer.Stop();
-                if (_loginThread != null)
-                {
-                    _loginThread.Abort();
-                    _isLogining = false;
-                }
+                case Keys.Enter:
+                    txtPassword.Focus();
+                    break;
             }
-        }
-
-        #region 登录按钮效果控制
-        private void btnCancel_MouseEnter(object sender, EventArgs e)
-        {
-            PictureBox picBox = sender as PictureBox;
-            picBox.Image = ImageUtil.GetPart(Globals.AppPath + "\\resource\\image\\loginBackground.jpg", 0, 0, 65, 38, 180, 185);
-        }
-
-        private void btnCancel_MouseDown(object sender, MouseEventArgs e)
-        {
-            PictureBox picBox = sender as PictureBox;
-            picBox.Image = ImageUtil.GetPart(Globals.AppPath + "\\resource\\image\\loginBackground.jpg", 0, 0, 65, 38, 178, 183);
-        }
-
-        private void btnCancel_MouseUp(object sender, MouseEventArgs e)
-        {
-            PictureBox picBox = sender as PictureBox;
-            picBox.Image = ImageUtil.GetPart(Globals.AppPath + "\\resource\\image\\loginBackground.jpg", 0, 0, 65, 38, 180, 185);
-        }
-
-        private void btnCancel_MouseLeave(object sender, EventArgs e)
-        {
-            PictureBox picBox = sender as PictureBox;
-            picBox.Image = ImageUtil.GetPart(Globals.AppPath + "\\resource\\image\\loginBackground.jpg", 0, 0, 65, 38, 179, 184);
-        }
-
-        private void btnLogin_MouseEnter(object sender, EventArgs e)
-        {
-            PictureBox picBox = sender as PictureBox;
-            picBox.Image = ImageUtil.GetPart(Globals.AppPath + "\\resource\\image\\loginBackground.jpg", 0, 0, 65, 38, 105, 185);
-        }
-
-        private void btnLogin_MouseLeave(object sender, EventArgs e)
-        {
-            PictureBox picBox = sender as PictureBox;
-            picBox.Image = ImageUtil.GetPart(Globals.AppPath + "\\resource\\image\\loginBackground.jpg", 0, 0, 65, 38, 104, 184);
-        }
-
-        private void btnLogin_MouseDown(object sender, MouseEventArgs e)
-        {
-            PictureBox picBox = sender as PictureBox;
-            picBox.Image = ImageUtil.GetPart(Globals.AppPath + "\\resource\\image\\loginBackground.jpg", 0, 0, 65, 38, 103, 183);
-        }
-
-        private void btnLogin_MouseUp(object sender, MouseEventArgs e)
-        {
-            PictureBox picBox = sender as PictureBox;
-            picBox.Image = ImageUtil.GetPart(Globals.AppPath + "\\resource\\image\\loginBackground.jpg", 0, 0, 65, 38, 105, 185);
-        }
-        #endregion
-
-        private void ThreadLogin()
-        {
-            if (!_isLogining)
-            {
-                lblMsg.Text = "";
-                timerProgress.Start();
-                _loginThread = new Thread(new ThreadStart(Login));
-                _loginThread.Start();
-            }
-        }
-
-        private void btnLogin_Click(object sender, EventArgs e)
-        {
-            ThreadLogin();
         }
 
         private void txtPassword_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            switch (e.KeyCode)
+            {
+                case Keys.Enter:
+                    if(ValidLogin())
+                        ThreadLogin();
+                    break;
+            }
+        }
+
+        private void panel2_MouseDown(object sender, MouseEventArgs e)
+        {
+            this.OnMouseDown(e);
+        }
+
+        private void panel2_MouseMove(object sender, MouseEventArgs e)
+        {
+            this.OnMouseMove(e);
+        }
+
+        private void panel2_MouseUp(object sender, MouseEventArgs e)
+        {
+            this.OnMouseUp(e);
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            if (ValidLogin())
             {
                 ThreadLogin();
             }
         }
-               
+
+        private void pictureBox1_MouseLeave(object sender, EventArgs e)
+        {
+            pictureBox1.Image = Image.FromFile("./resource/image/btn2.png");
+        }
+
+        private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
+        {
+            pictureBox1.Image = Image.FromFile("./resource/image/btn1.png");
+        }
+
+        private void pictureBox1_MouseEnter(object sender, EventArgs e)
+        {
+            pictureBox1.Image = Image.FromFile("./resource/image/btn1.png");
+        }
+
+        private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
+        {
+            pictureBox1.Image = Image.FromFile("./resource/image/btn2.png");
+        }
+
+        private void FormLogin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (DialogResult != DialogResult.OK && lockSystem)
+            {
+                DialogResult = DialogResult.Abort;
+            }
+        }
     }
 }

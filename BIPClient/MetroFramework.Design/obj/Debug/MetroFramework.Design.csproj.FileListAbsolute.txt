@@ -1,0 +1,26 @@
+F:\winform\winforms-modernui-master\winforms-modernui-master\MetroFramework.Design\obj\Debug\MetroFramework.Design.csprojResolveAssemblyReference.cache
+F:\winform\winforms-modernui-master\winforms-modernui-master\MetroFramework.Design\bin\Debug\MetroFramework.Design.dll
+F:\winform\winforms-modernui-master\winforms-modernui-master\MetroFramework.Design\bin\Debug\MetroFramework.Design.pdb
+F:\winform\winforms-modernui-master\winforms-modernui-master\MetroFramework.Design\bin\Debug\MetroFramework.dll
+F:\winform\winforms-modernui-master\winforms-modernui-master\MetroFramework.Design\bin\Debug\MetroFramework.pdb
+F:\winform\winforms-modernui-master\winforms-modernui-master\MetroFramework.Design\obj\Debug\MetroFramework.Design.dll
+F:\winform\winforms-modernui-master\winforms-modernui-master\MetroFramework.Design\obj\Debug\MetroFramework.Design.pdb
+F:\winform\winforms-modernui-master\MetroForWinForm\MetroFramework.Design\bin\Debug\MetroFramework.Design.dll
+F:\winform\winforms-modernui-master\MetroForWinForm\MetroFramework.Design\bin\Debug\MetroFramework.Design.pdb
+F:\winform\winforms-modernui-master\MetroForWinForm\MetroFramework.Design\bin\Debug\MetroFramework.dll
+F:\winform\winforms-modernui-master\MetroForWinForm\MetroFramework.Design\bin\Debug\MetroFramework.pdb
+F:\winform\winforms-modernui-master\MetroForWinForm\MetroFramework.Design\obj\Debug\MetroFramework.Design.csprojResolveAssemblyReference.cache
+F:\winform\winforms-modernui-master\MetroForWinForm\MetroFramework.Design\obj\Debug\MetroFramework.Design.dll
+F:\winform\winforms-modernui-master\MetroForWinForm\MetroFramework.Design\obj\Debug\MetroFramework.Design.pdb
+C:\Users\siy\Downloads\MetroForWinForm(win8风格模版)\MetroForWinForm\MetroFramework.Design\bin\Debug\MetroFramework.Design.dll
+C:\Users\siy\Downloads\MetroForWinForm(win8风格模版)\MetroForWinForm\MetroFramework.Design\bin\Debug\MetroFramework.Design.pdb
+C:\Users\siy\Downloads\MetroForWinForm(win8风格模版)\MetroForWinForm\MetroFramework.Design\bin\Debug\MetroFramework.dll
+C:\Users\siy\Downloads\MetroForWinForm(win8风格模版)\MetroForWinForm\MetroFramework.Design\bin\Debug\MetroFramework.pdb
+C:\Users\siy\Downloads\MetroForWinForm(win8风格模版)\MetroForWinForm\MetroFramework.Design\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\siy\Downloads\MetroForWinForm(win8风格模版)\MetroForWinForm\MetroFramework.Design\obj\Debug\MetroFramework.Design.dll
+C:\Users\siy\Downloads\MetroForWinForm(win8风格模版)\MetroForWinForm\MetroFramework.Design\obj\Debug\MetroFramework.Design.pdb
+F:\My Documents\Visual Studio 2008\Projects\BIP\MetroFramework.Design\obj\Debug\ResolveAssemblyReference.cache
+F:\My Documents\Visual Studio 2008\Projects\BIP\MetroFramework.Design\obj\Debug\MetroFramework.Design.pdb
+F:\My Documents\Visual Studio 2008\Projects\BIP\Debug\MetroFramework.Design.dll
+F:\My Documents\Visual Studio 2008\Projects\BIP\Debug\MetroFramework.Design.pdb
+F:\My Documents\Visual Studio 2008\Projects\BIP\MetroFramework.Design\obj\Debug\MetroFramework.Design.dll

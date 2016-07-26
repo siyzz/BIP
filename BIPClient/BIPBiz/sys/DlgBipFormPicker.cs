@@ -8,10 +8,12 @@ using System.Text;
 using System.Windows.Forms;
 using com.ccf.bip.framework.form;
 using System.Reflection;
+using MetroFramework.Forms;
+using MetroFramework;
 
 namespace com.ccf.bip.biz.sys
 {
-    public partial class DlgBipFormPicker : BipForm
+    public partial class DlgBipFormPicker : BipMetroForm
     {
         private string _dllFileName;
         private Module[] _modules;
@@ -63,7 +65,7 @@ namespace com.ccf.bip.biz.sys
             }
             else
             {
-                MessageBox.Show("请选择一个功能！");
+                MetroMessageBox.Show(this,"请选择一个功能！");
             }
         }
 

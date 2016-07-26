@@ -4,8 +4,6 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import com.ccf.bip.biz.system.authorization.mapper.SysPost;
-import com.ccf.bip.biz.system.authorization.mapper.SysPostMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -121,6 +119,11 @@ public class FunctionService implements IFunctionService {
 	public List<SysFunction> findFunctionList() {
 		// TODO Auto-generated method stub
 		return mapper.selectAll();
+	}
+
+	@Override
+	public List<SysFunction> findSystemList() {
+		return mapper.selectSystemList();
 	}
 
 }

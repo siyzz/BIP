@@ -20,5 +20,17 @@ namespace com.ccf.bip.framework.core
             string json = JSONUtil.ToJson(configList);
             FileUtil.WriteTextFile(Globals.ConfigPath + "\\" + configName, json);
         }
+
+        public static T LoadObject<T>(string configName)
+        {
+            string json = FileUtil.ReadTextFile(Globals.ConfigPath + "\\" + configName);
+            return JSONUtil.Parse<T>(json);
+        }
+
+        public static void StoreObject(string configName, object config)
+        {
+            string json = JSONUtil.ToJson(config);
+            FileUtil.WriteTextFile(Globals.ConfigPath + "\\" + configName, json);
+        }
     }
 }

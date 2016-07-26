@@ -5,6 +5,10 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import com.ccf.bip.framework.core.BipGuid;
+import com.ccf.bip.framework.util.EncryptionUtil;
+import com.ccf.bip.framework.util.StringUtil;
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -26,6 +30,7 @@ import com.ccf.bip.framework.core.BipException;
  */
 @Service("employeeService")
 public class EmployeeService implements IEmployeeService {
+	private static final Logger logger = Logger.getLogger(EmployeeService.class);
 	@Resource
 	private SysEmployeeMapper mapper;
 	@Resource
@@ -34,6 +39,16 @@ public class EmployeeService implements IEmployeeService {
 	public List<SysEmployee> recursiveFindByOrgId(String orgId) {
 		// TODO Auto-generated method stub
 		return mapper.recursiveSelectByOrgId(orgId);
+	}
+	
+	public List<HashMap<String, Object>> recursiveSingleFindByOrgId(String orgId) {
+		// TODO Auto-generated method stub
+		return mapper.recursiveSingleSelectByOrgId(orgId);
+	}
+
+	@Override
+	public List<HashMap<String, Object>> findWithAccount(String orgId) {
+		return mapper.selectWithAccount(orgId);
 	}
 
 	@Override
@@ -65,5 +80,38 @@ public class EmployeeService implements IEmployeeService {
 			}
 		}
 		return ret;
-	}	
+	}
+
+	@Override
+	@Transactional
+	public Integer setAccount(String[] params) {
+		int count = 0;
+		String userId = userMapper.selectUserIdByEmployeeId(params[0]);
+		SysUser user = null;
+		if(StringUtil.isNotEmpty(userId)){
+			//update
+			user = userMapper.selectByPrimaryKey(userId);
+			user.setUserAccount(params[1]);
+			if(StringUtil.isNotEmpty(params[2])){
+				user.setUserPassword(EncryptionUtil.MD5(params[2]));
+			}
+			user.setValid(params[3]);
+			count = userMapper.updateByPrimaryKeySelective(user);
+		}
+		else{
+			//insert
+			user = new SysUser();
+			user.setUserId(BipGuid.getGuid());
+			user.setEmployeeId(params[0]);
+			user.setUserAccount(params[1]);
+			if(StringUtil.isEmpty(params[2])){
+				logger.warn("新增帐号请输入初始密码！");
+				throw  new BipException("新增帐号请输入初始密码！");
+			}
+			user.setUserPassword(EncryptionUtil.MD5(params[2]));
+			user.setValid(params[3]);
+			count = userMapper.insertSelective(user);
+		}
+		return count;
+	}
 }

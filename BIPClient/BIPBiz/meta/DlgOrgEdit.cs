@@ -11,10 +11,11 @@ using com.ccf.bip.biz.metadata.org.mapper;
 using com.ccf.bip.framework.core;
 using com.ccf.bip.biz.metadata.dictionary.mapper;
 using com.ccf.bip.framework.server;
+using MetroFramework.Forms;
 
 namespace com.ccf.bip.biz.meta
 {
-    public partial class DlgOrgEdit : BipForm
+    public partial class DlgOrgEdit : BipMetroForm
     {
         public const string SERVICE_NAME = "com.ccf.bip.biz.metadata.org.service.OrganizationService";
         private SysOrganization _org;

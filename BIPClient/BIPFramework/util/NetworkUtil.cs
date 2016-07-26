@@ -15,17 +15,23 @@ namespace com.ccf.bip.framework.util
         /// <returns>true 通，false 不通</returns>
         public static bool Ping(string ip)
         {
-            Ping p = new Ping();
-            PingOptions options = new PingOptions();
-            options.DontFragment = true;
-            string data = "Test Data!";
-            byte[] buffer = Encoding.ASCII.GetBytes(data);
-            int timeout = 1000; // Timeout 时间，单位：毫秒
-            PingReply reply = p.Send(ip, timeout, buffer, options);
-            if (reply.Status == IPStatus.Success)
-                return true;
-            else
-                return false;
+            bool ret = false;
+            try
+            {
+                Ping p = new Ping();
+                PingOptions options = new PingOptions();
+                options.DontFragment = true;
+                string data = "Test Data!";
+                byte[] buffer = Encoding.ASCII.GetBytes(data);
+                int timeout = 1000; // Timeout 时间，单位：毫秒
+                PingReply reply = p.Send(ip, timeout, buffer, options);
+                if (reply.Status == IPStatus.Success)
+                    ret = true;
+            }
+            catch (Exception ex)
+            {
+            }
+            return ret;
         }
     }
 }

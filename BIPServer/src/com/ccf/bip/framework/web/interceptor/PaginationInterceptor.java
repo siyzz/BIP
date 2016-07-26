@@ -73,7 +73,7 @@ public class PaginationInterceptor implements Interceptor {
 		if (StringUtils.isBlank(sql)) {
 			return inv.proceed();
 		}
-		logger.info("origin sql>>>>" + sql.replaceAll("\n", "")); // 限定为select查询语句且不能是查询count
+		logger.debug("origin sql>>>>" + sql.replaceAll("\n", "")); // 限定为select查询语句且不能是查询count
 		if (sql.matches(SQL_SELECT_REGEX)
 				&& !Pattern.matches(SQL_COUNT_REGEX, sql)) {
 			Object obj = FieldUtils.readField(target, "delegate", true); // 反射获取RowBounds对象
@@ -82,7 +82,7 @@ public class PaginationInterceptor implements Interceptor {
 			if (rowBounds != null && rowBounds != RowBounds.DEFAULT) {
 				FieldUtils.writeField(boundSql, "sql", newSql(sql, rowBounds),
 						true);
-				logger.info("new sql>>>>" + newSql(sql, rowBounds).replaceAll("\n", ""));
+				logger.debug("new sql>>>>" + newSql(sql, rowBounds).replaceAll("\n", ""));
 			}
 		}
 		return inv.proceed();

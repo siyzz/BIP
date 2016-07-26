@@ -1,5 +1,7 @@
 package com.ccf.bip.biz.system.user.service;
 
+import java.util.List;
+
 import com.ccf.bip.biz.system.user.mapper.SysUser;
 
 /**
@@ -17,16 +19,16 @@ import com.ccf.bip.biz.system.user.mapper.SysUser;
 public interface IUserService {  
     public SysUser getUserById(String userId);
     
-    public Integer changePassword(SysUser user);
+    public Integer changePassword(SysUser user,String newPassword);
     
     public String test(String str);
     /**
      * 用户登录
      * @author siy
-     * @param SysUser 用户对象
+     * @param List<Object> list[0]用户对名象 list[1]客户端tocken
      * @return SysUser 用户对象
      * @throws 
      * @version V1.0
      */
-    public SysUser login(SysUser user);
+    public List<Object> login(SysUser user);
 }

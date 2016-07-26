@@ -1,0 +1,41 @@
+F:\winform\winforms-modernui-master\winforms-modernui-master\MetroFramework\obj\Debug\MetroFramework.csprojResolveAssemblyReference.cache
+F:\winform\winforms-modernui-master\winforms-modernui-master\MetroFramework\obj\Debug\MetroFramework.MetroMessageBoxControl.resources
+F:\winform\winforms-modernui-master\winforms-modernui-master\MetroFramework\obj\Debug\MetroFramework.Properties.Resources.resources
+F:\winform\winforms-modernui-master\winforms-modernui-master\MetroFramework\obj\Debug\MetroFramework.csproj.GenerateResource.Cache
+F:\winform\winforms-modernui-master\winforms-modernui-master\MetroFramework\bin\Debug\MetroFramework.dll
+F:\winform\winforms-modernui-master\winforms-modernui-master\MetroFramework\bin\Debug\MetroFramework.pdb
+F:\winform\winforms-modernui-master\winforms-modernui-master\MetroFramework\obj\Debug\MetroFramework.dll
+F:\winform\winforms-modernui-master\winforms-modernui-master\MetroFramework\obj\Debug\MetroFramework.pdb
+F:\winform\winforms-modernui-master\winforms-modernui-master\MetroFramework\obj\Debug\MetroFramework.Forms.MetroMessageBox.resources
+F:\winform\winforms-modernui-master\winforms-modernui-master\MetroFramework\obj\Debug\MetroFramework.Forms.MetroForm.resources
+F:\winform\winforms-modernui-master\MetroForWinForm\MetroFramework\bin\Debug\MetroFramework.dll
+F:\winform\winforms-modernui-master\MetroForWinForm\MetroFramework\bin\Debug\MetroFramework.pdb
+F:\winform\winforms-modernui-master\MetroForWinForm\MetroFramework\obj\Debug\MetroFramework.csprojResolveAssemblyReference.cache
+F:\winform\winforms-modernui-master\MetroForWinForm\MetroFramework\obj\Debug\MetroFramework.Forms.MetroForm.resources
+F:\winform\winforms-modernui-master\MetroForWinForm\MetroFramework\obj\Debug\MetroFramework.Forms.MetroMessageBox.resources
+F:\winform\winforms-modernui-master\MetroForWinForm\MetroFramework\obj\Debug\MetroFramework.MetroMessageBoxControl.resources
+F:\winform\winforms-modernui-master\MetroForWinForm\MetroFramework\obj\Debug\MetroFramework.Properties.Resources.resources
+F:\winform\winforms-modernui-master\MetroForWinForm\MetroFramework\obj\Debug\MetroFramework.csproj.GenerateResource.Cache
+F:\winform\winforms-modernui-master\MetroForWinForm\MetroFramework\obj\Debug\MetroFramework.dll
+F:\winform\winforms-modernui-master\MetroForWinForm\MetroFramework\obj\Debug\MetroFramework.pdb
+C:\Users\siy\Downloads\MetroForWinForm(win8风格模版)\MetroForWinForm\MetroFramework\bin\Debug\MetroFramework.dll
+C:\Users\siy\Downloads\MetroForWinForm(win8风格模版)\MetroForWinForm\MetroFramework\bin\Debug\MetroFramework.pdb
+C:\Users\siy\Downloads\MetroForWinForm(win8风格模版)\MetroForWinForm\MetroFramework\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\siy\Downloads\MetroForWinForm(win8风格模版)\MetroForWinForm\MetroFramework\obj\Debug\MetroFramework.Forms.MetroForm.resources
+C:\Users\siy\Downloads\MetroForWinForm(win8风格模版)\MetroForWinForm\MetroFramework\obj\Debug\MetroFramework.Forms.MetroMessageBox.resources
+C:\Users\siy\Downloads\MetroForWinForm(win8风格模版)\MetroForWinForm\MetroFramework\obj\Debug\MetroFramework.MetroMessageBoxControl.resources
+C:\Users\siy\Downloads\MetroForWinForm(win8风格模版)\MetroForWinForm\MetroFramework\obj\Debug\MetroFramework.Properties.Resources.resources
+C:\Users\siy\Downloads\MetroForWinForm(win8风格模版)\MetroForWinForm\MetroFramework\obj\Debug\MetroFramework.csproj.GenerateResource.Cache
+C:\Users\siy\Downloads\MetroForWinForm(win8风格模版)\MetroForWinForm\MetroFramework\obj\Debug\MetroFramework.dll
+C:\Users\siy\Downloads\MetroForWinForm(win8风格模版)\MetroForWinForm\MetroFramework\obj\Debug\MetroFramework.pdb
+F:\My Documents\Visual Studio 2008\Projects\BIP\Debug\MetroFramework.dll
+F:\My Documents\Visual Studio 2008\Projects\BIP\Debug\MetroFramework.pdb
+F:\My Documents\Visual Studio 2008\Projects\BIP\MetroFramework\obj\Debug\ResolveAssemblyReference.cache
+F:\My Documents\Visual Studio 2008\Projects\BIP\MetroFramework\obj\Debug\MetroFramework.Forms.MetroForm.resources
+F:\My Documents\Visual Studio 2008\Projects\BIP\MetroFramework\obj\Debug\MetroFramework.Forms.MetroMessageBox.resources
+F:\My Documents\Visual Studio 2008\Projects\BIP\MetroFramework\obj\Debug\MetroFramework.MetroMessageBoxControl.resources
+F:\My Documents\Visual Studio 2008\Projects\BIP\MetroFramework\obj\Debug\MetroFramework.Properties.Resources.resources
+F:\My Documents\Visual Studio 2008\Projects\BIP\MetroFramework\obj\Debug\MetroFramework.csproj.GenerateResource.Cache
+F:\My Documents\Visual Studio 2008\Projects\BIP\MetroFramework\obj\Debug\MetroFramework.dll
+F:\My Documents\Visual Studio 2008\Projects\BIP\MetroFramework\obj\Debug\MetroFramework.pdb
+F:\My Documents\Visual Studio 2008\Projects\BIP\MetroFramework\obj\Debug\MetroFramework.MessageBox.ResourceMetroMessageBox.resources

@@ -1,0 +1,6 @@
+C:\Users\siy\Downloads\MetroForWinForm(win8风格模版)\MetroForWinForm\MetroFramework.Design\bin\Release\MetroFramework.Design.dll
+C:\Users\siy\Downloads\MetroForWinForm(win8风格模版)\MetroForWinForm\MetroFramework.Design\bin\Release\MetroFramework.Design.pdb
+C:\Users\siy\Downloads\MetroForWinForm(win8风格模版)\MetroForWinForm\MetroFramework.Design\bin\Release\MetroFramework.dll
+C:\Users\siy\Downloads\MetroForWinForm(win8风格模版)\MetroForWinForm\MetroFramework.Design\obj\Release\ResolveAssemblyReference.cache
+C:\Users\siy\Downloads\MetroForWinForm(win8风格模版)\MetroForWinForm\MetroFramework.Design\obj\Release\MetroFramework.Design.dll
+C:\Users\siy\Downloads\MetroForWinForm(win8风格模版)\MetroForWinForm\MetroFramework.Design\obj\Release\MetroFramework.Design.pdb

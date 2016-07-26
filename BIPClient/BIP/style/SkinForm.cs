@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Runtime.InteropServices;
 using com.ccf.bip.framework.form;
 using com.ccf.bip.framework.util;
+using com.ccf.bip.framework.core;
 
 namespace com.ccf.bip.frame.style
 {
@@ -514,6 +515,7 @@ namespace com.ccf.bip.frame.style
                     break;
                 case (int)NativeMethods.WindowMessages.WM_NCACTIVATE:
                     WmNcActive(ref m);
+                    SetClassLong(this.Handle, GCL_STYLE, GetClassLong(this.Handle, GCL_STYLE) | CS_DropSHADOW); //API函数加载，实现窗体边框阴影效果
                     break;
                 case (int)NativeMethods.WindowMessages.WM_SYSCOMMAND:
                     int wparam = m.LParam.ToInt32();
@@ -697,6 +699,7 @@ namespace com.ccf.bip.frame.style
             {
                 _active = false;
             }
+            
             m.Result = NativeMethods.TRUE;
             base.Invalidate();
         }

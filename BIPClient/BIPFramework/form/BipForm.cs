@@ -64,19 +64,31 @@ namespace com.ccf.bip.framework.form
             set { toolbar = value; }
         }
 
-        public IEnumerable<T> Find<T>(string serviceName, String methodName, object[] args)
+        public IEnumerable<T> Find<T>(string serviceName, string methodName, object[] args)
+        {
+            return (this.action.Excute(serviceName, methodName, args) as ArrayList).Cast<T>();
+        }
+
+        public IEnumerable<T> Find<T>(BipAction action, string serviceName, string methodName, object[] args)
         {
             return (action.Excute(serviceName, methodName, args) as ArrayList).Cast<T>();
         }
 
-        public List<T> FindList<T>(string serviceName, String methodName, object[] args)
+        public List<T> FindList<T>(string serviceName, string methodName, object[] args)
         {
             List<T> list = new List<T>();
             list.AddRange(this.Find<T>(serviceName, methodName, args));
             return list;
         }
 
-        public DataTable FindDataTable(string serviceName, String methodName, object[] args)
+        public List<T> FindList<T>(BipAction action,string serviceName, string methodName, object[] args)
+        {
+            List<T> list = new List<T>();
+            list.AddRange(this.Find<T>(action, serviceName, methodName, args));
+            return list;
+        }
+
+        public DataTable FindDataTable(string serviceName, string methodName, object[] args)
         {
             DataTable table = new DataTable();
             IEnumerable<Hashtable> enumrable = this.Find<Hashtable>(serviceName,methodName,args);
@@ -102,32 +114,41 @@ namespace com.ccf.bip.framework.form
                 do
                 {
                     ht = enumrator.Current;
-                    object[] values = new object[ht.Keys.Count];
+                    //object[] values = new object[ht.Keys.Count];
+                    DataRow dr = table.NewRow();
                     int i = 0;
                     foreach (DictionaryEntry de in ht)
                     {
                         if (de.Value != null && de.Value.GetType().Equals(typeof(Hashtable)))
                         {
-                            values[i++] = (de.Value as Hashtable)["value"];
+                            //values[i++] = (de.Value as Hashtable)["value"];
+                            dr[de.Key.ToString()] = (de.Value as Hashtable)["value"];
                             continue;
                         }
-                        values[i++] = de.Value;
+                        //values[i++] = de.Value;
+                        dr[de.Key.ToString()] = de.Value;
                     }
-                    table.Rows.Add(values);
+                    //table.Rows.Add(values);
+                    table.Rows.Add(dr);
                 }
                 while (enumrator.MoveNext());
             }
             return table;
         }
 
-        public T FindOne<T>(string serviceName, String methodName, object[] args)
+        public T FindOne<T>(string serviceName, string methodName, object[] args)
+        {
+            return (T)this.action.Excute(serviceName, methodName, args);
+        }
+
+        public T FindOne<T>(BipAction action, string serviceName, string methodName, object[] args)
         {
             return (T)action.Excute(serviceName, methodName, args);
         }
 
-        public bool Update(string serviceName, String methodName, object[] args)
+        public bool Update(string serviceName, string methodName, object[] args)
         {
-            action.Excute(serviceName, methodName, args);
+            this.action.Excute(serviceName, methodName, args);
             return true;
         }
 

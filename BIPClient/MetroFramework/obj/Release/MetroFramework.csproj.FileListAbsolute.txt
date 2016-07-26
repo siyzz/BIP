@@ -1,0 +1,8 @@
+C:\Users\siy\Downloads\MetroForWinForm(win8风格模版)\MetroForWinForm\MetroFramework\bin\Release\MetroFramework.dll
+C:\Users\siy\Downloads\MetroForWinForm(win8风格模版)\MetroForWinForm\MetroFramework\obj\Release\ResolveAssemblyReference.cache
+C:\Users\siy\Downloads\MetroForWinForm(win8风格模版)\MetroForWinForm\MetroFramework\obj\Release\MetroFramework.Forms.MetroForm.resources
+C:\Users\siy\Downloads\MetroForWinForm(win8风格模版)\MetroForWinForm\MetroFramework\obj\Release\MetroFramework.Forms.MetroMessageBox.resources
+C:\Users\siy\Downloads\MetroForWinForm(win8风格模版)\MetroForWinForm\MetroFramework\obj\Release\MetroFramework.MetroMessageBoxControl.resources
+C:\Users\siy\Downloads\MetroForWinForm(win8风格模版)\MetroForWinForm\MetroFramework\obj\Release\MetroFramework.Properties.Resources.resources
+C:\Users\siy\Downloads\MetroForWinForm(win8风格模版)\MetroForWinForm\MetroFramework\obj\Release\MetroFramework.csproj.GenerateResource.Cache
+C:\Users\siy\Downloads\MetroForWinForm(win8风格模版)\MetroForWinForm\MetroFramework\obj\Release\MetroFramework.dll

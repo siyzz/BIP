@@ -6,14 +6,13 @@ import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.sql.SQLException;
 
 /**
  * Created by siy on 2016/6/23.
  */
 @Service("serverInfoService")
 public class ServerInfoService implements IServerInfoService {
-    private Logger logger = Logger.getLogger(ServerInfoService.class);
+    private static final Logger logger = Logger.getLogger(ServerInfoService.class);
     @Resource
     private ServerStatusMapper mapper;
     @Override
@@ -26,6 +25,7 @@ public class ServerInfoService implements IServerInfoService {
             mapper.testDb();
         }
         catch (RuntimeException e){
+            logger.warn(e.getMessage());
             dbConnecting = false;
         }
         serverStatus.setDatabaseConnecting(dbConnecting);

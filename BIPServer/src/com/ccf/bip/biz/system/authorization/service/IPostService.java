@@ -1,7 +1,9 @@
 package com.ccf.bip.biz.system.authorization.service;
 
+import com.ccf.bip.biz.system.authorization.mapper.SysEmployeePost;
 import com.ccf.bip.biz.system.authorization.mapper.SysPost;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -49,4 +51,18 @@ public interface IPostService {
      * @return
      */
     Integer delete(String postId);
+    
+    /**
+     * 添加员工
+     * @param list
+     * @return
+     */
+    Integer addEmployees(ArrayList<SysEmployeePost> list);
+    
+    /**
+     * 移除员工
+     * @param list
+     * @return
+     */
+    Integer removeEmployees(ArrayList<SysEmployeePost> list);
 }

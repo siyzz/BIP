@@ -44,7 +44,7 @@ public class UserController {
         
         String userId = request.getParameter("id");
         SysUser user = this.userService.getUserById(userId);
-        this.userService.changePassword(user);
+        this.userService.changePassword(user,"123213");
         
         user = this.userService.getUserById(userId);  
         model.addAttribute("user", user);  

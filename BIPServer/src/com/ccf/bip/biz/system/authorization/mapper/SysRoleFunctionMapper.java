@@ -1,7 +1,5 @@
 package com.ccf.bip.biz.system.authorization.mapper;
 
-import java.util.List;
-
 public interface SysRoleFunctionMapper {
     int deleteByPrimaryKey(String relationId);
 

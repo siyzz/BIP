@@ -8,6 +8,8 @@ public class ParameterInfo implements Serializable {
     private String serviceName;
     private String functionName;
     private Object[] value;
+    private String tocken;
+    private boolean sessionUpdate = true;//请求是否更新session，默认为true
     
     public String getServiceName() {
         return serviceName;
@@ -27,4 +29,16 @@ public class ParameterInfo implements Serializable {
     public void setValue(Object[] value) {
         this.value = value;
     }
+	public String getTocken() {
+		return tocken;
+	}
+	public void setTocken(String tocken) {
+		this.tocken = tocken;
+	}
+	public boolean isSessionUpdate() {
+		return sessionUpdate;
+	}
+	public void setSessionUpdate(boolean sessionUpdate) {
+		this.sessionUpdate = sessionUpdate;
+	}    
 }

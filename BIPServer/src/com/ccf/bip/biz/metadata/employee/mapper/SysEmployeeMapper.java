@@ -1,6 +1,5 @@
 package com.ccf.bip.biz.metadata.employee.mapper;
 
-import javax.sound.midi.SysexMessage;
 import java.util.HashMap;
 import java.util.List;
 
@@ -16,6 +15,10 @@ public interface SysEmployeeMapper {
     List<HashMap<String,Object>> selectByPostId(String roleId);
 
     List<SysEmployee> recursiveSelectByOrgId(String orgId);
+    
+    List<HashMap<String,Object>> recursiveSingleSelectByOrgId(String orgId);
+
+    List<HashMap<String,Object>> selectWithAccount(String orgId);
 
     int updateByPrimaryKeySelective(SysEmployee record);
 

@@ -9,3 +9,5 @@ F:\My Documents\Visual Studio 2008\Projects\BIP\BIPFramework\obj\Debug\BIPFramew
 F:\My Documents\Visual Studio 2008\Projects\BIP\BIPFramework\obj\Debug\BIPFramework.dll
 F:\My Documents\Visual Studio 2008\Projects\BIP\BIPFramework\obj\Debug\BIPFramework.pdb
 F:\My Documents\Visual Studio 2008\Projects\BIP\BIPFramework\obj\Debug\com.ccf.bip.framework.form.control.BipTableView.resources
+F:\My Documents\Visual Studio 2008\Projects\BIP\BIPFramework\obj\Debug\com.ccf.bip.framework.form.control.IconTextBox.resources
+F:\My Documents\Visual Studio 2008\Projects\BIP\BIPFramework\obj\Debug\com.ccf.bip.framework.Properties.Resources.resources

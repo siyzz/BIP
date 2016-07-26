@@ -87,6 +87,12 @@ public interface IFunctionService {
 	 * @version V1.0
 	 */
 	public List<SysFunction> findFunctionList();
+
+	/**
+	 * 获取系统列表
+	 * @return
+     */
+	public List<SysFunction> findSystemList();
 	
 	/**
 	 * 按窗体ID查找功能按钮列表

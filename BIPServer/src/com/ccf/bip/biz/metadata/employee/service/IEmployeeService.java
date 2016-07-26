@@ -27,6 +27,13 @@ public interface IEmployeeService {
 	public List<SysEmployee> recursiveFindByOrgId(String orgId);
 
 	/**
+	 * 按组织ID获取组织下所有员工及帐号信息
+	 * @param orgId
+	 * @return
+     */
+	public List<HashMap<String,Object>> findWithAccount(String orgId);
+
+	/**
 	 * 根据岗位获取用户
 	 * @param postId
 	 * @return
@@ -62,4 +69,11 @@ public interface IEmployeeService {
 	 * @version V1.0
 	 */
 	public Integer delete(String[] employeeIdArray);
+
+	/**
+	 * 设置员工帐号
+	 * @param params 1-员工ID,2-帐号，3-密码，4-是否有效
+	 * @return
+     */
+	public Integer setAccount(String[] params);
 }

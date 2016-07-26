@@ -18,7 +18,9 @@ public interface SysFunctionMapper {
     List<SysFunction> selectByUser(String employeeId);
 
     List<SysFunction> selectAll();
-    
+
+    List<SysFunction> selectSystemList();
+
     List<SysFunction> selectButtonList(String parentId);
 
     List<SysFunction> selectAuthor(String roleId);

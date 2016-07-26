@@ -38,5 +38,25 @@ namespace com.ccf.bip.framework.core
             get { return this.value; }
             set { this.value = value; }
         }
+
+        private string tocken;
+        /// <summary>
+        /// 服务器Session验证字符串
+        /// </summary>
+        public string Tocken
+        {
+            get { return tocken; }
+            set { tocken = value; }
+        }
+
+        private bool sessionUpdate = true;
+        /// <summary>
+        /// 客户端请求是否更新session,默认为true
+        /// </summary>
+        public bool SessionUpdate
+        {
+            get { return sessionUpdate; }
+            set { sessionUpdate = value; }
+        }
     }
 }

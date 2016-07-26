@@ -57,6 +57,8 @@
             Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn12 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("EMPLOYEE_NAME");
             Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn13 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("USER_ACCOUNT");
             Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn14 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("ORGANIZATION_NAME");
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn15 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("CHK");
+            Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn16 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("EMPLOYEE_ID");
             Infragistics.Win.Appearance appearance4 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance5 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance6 = new Infragistics.Win.Appearance();
@@ -65,19 +67,35 @@
             Infragistics.Win.Appearance appearance9 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance10 = new Infragistics.Win.Appearance();
             Infragistics.Win.UltraWinScrollBar.ScrollBarLook scrollBarLook2 = new Infragistics.Win.UltraWinScrollBar.ScrollBarLook();
+            Infragistics.Win.Appearance appearance28 = new Infragistics.Win.Appearance();
+            Infragistics.Win.UltraWinToolbars.UltraToolbar ultraToolbar1 = new Infragistics.Win.UltraWinToolbars.UltraToolbar("UltraToolbar1");
+            Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool1 = new Infragistics.Win.UltraWinToolbars.ButtonTool("Add");
+            Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool2 = new Infragistics.Win.UltraWinToolbars.ButtonTool("Remove");
+            Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool3 = new Infragistics.Win.UltraWinToolbars.ButtonTool("Add");
+            Infragistics.Win.Appearance appearance30 = new Infragistics.Win.Appearance();
+            Infragistics.Win.UltraWinToolbars.ButtonTool buttonTool4 = new Infragistics.Win.UltraWinToolbars.ButtonTool("Remove");
+            Infragistics.Win.Appearance appearance29 = new Infragistics.Win.Appearance();
             this.ultraGroupBox1 = new Infragistics.Win.Misc.UltraGroupBox();
             this.ultraTree1 = new Infragistics.Win.UltraWinTree.UltraTree();
             this.ultraGroupBox2 = new Infragistics.Win.Misc.UltraGroupBox();
             this.ultraGrid1 = new Infragistics.Win.UltraWinGrid.UltraGrid();
             this.sysPostBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ultraGroupBox3 = new Infragistics.Win.Misc.UltraGroupBox();
-            this.ultraGrid2 = new Infragistics.Win.UltraWinGrid.UltraGrid();
             this.dataSet1 = new System.Data.DataSet();
             this.dataTable1 = new System.Data.DataTable();
             this.dataColumn1 = new System.Data.DataColumn();
             this.dataColumn2 = new System.Data.DataColumn();
             this.dataColumn3 = new System.Data.DataColumn();
             this.dataColumn4 = new System.Data.DataColumn();
+            this.dataColumn5 = new System.Data.DataColumn();
+            this.dataColumn6 = new System.Data.DataColumn();
+            this.ultraGroupBox3 = new Infragistics.Win.Misc.UltraGroupBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.ultraGrid2 = new Infragistics.Win.UltraWinGrid.UltraGrid();
+            this._panel1_Toolbars_Dock_Area_Left = new Infragistics.Win.UltraWinToolbars.UltraToolbarsDockArea();
+            this.ultraToolbarsManager1 = new Infragistics.Win.UltraWinToolbars.UltraToolbarsManager(this.components);
+            this._panel1_Toolbars_Dock_Area_Right = new Infragistics.Win.UltraWinToolbars.UltraToolbarsDockArea();
+            this._panel1_Toolbars_Dock_Area_Top = new Infragistics.Win.UltraWinToolbars.UltraToolbarsDockArea();
+            this._panel1_Toolbars_Dock_Area_Bottom = new Infragistics.Win.UltraWinToolbars.UltraToolbarsDockArea();
             ((System.ComponentModel.ISupportInitialize)(this.ultraGroupBox1)).BeginInit();
             this.ultraGroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ultraTree1)).BeginInit();
@@ -85,11 +103,13 @@
             this.ultraGroupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ultraGrid1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sysPostBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraGroupBox3)).BeginInit();
-            this.ultraGroupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraGrid2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraGroupBox3)).BeginInit();
+            this.ultraGroupBox3.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraGrid2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraToolbarsManager1)).BeginInit();
             this.SuspendLayout();
             // 
             // ultraGroupBox1
@@ -232,15 +252,74 @@
             // 
             this.sysPostBindingSource.DataSource = typeof(com.ccf.bip.biz.system.authorization.mapper.SysPost);
             // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "NewDataSet";
+            this.dataSet1.Tables.AddRange(new System.Data.DataTable[] {
+            this.dataTable1});
+            // 
+            // dataTable1
+            // 
+            this.dataTable1.Columns.AddRange(new System.Data.DataColumn[] {
+            this.dataColumn1,
+            this.dataColumn2,
+            this.dataColumn3,
+            this.dataColumn4,
+            this.dataColumn5,
+            this.dataColumn6});
+            this.dataTable1.TableName = "Table1";
+            // 
+            // dataColumn1
+            // 
+            this.dataColumn1.Caption = "员工编号";
+            this.dataColumn1.ColumnName = "EMPLOYEE_CODE";
+            // 
+            // dataColumn2
+            // 
+            this.dataColumn2.Caption = "员工姓名";
+            this.dataColumn2.ColumnName = "EMPLOYEE_NAME";
+            // 
+            // dataColumn3
+            // 
+            this.dataColumn3.Caption = "系统帐号";
+            this.dataColumn3.ColumnName = "USER_ACCOUNT";
+            // 
+            // dataColumn4
+            // 
+            this.dataColumn4.Caption = "所在组织";
+            this.dataColumn4.ColumnName = "ORGANIZATION_NAME";
+            // 
+            // dataColumn5
+            // 
+            this.dataColumn5.Caption = "选择";
+            this.dataColumn5.ColumnName = "CHK";
+            // 
+            // dataColumn6
+            // 
+            this.dataColumn6.ColumnName = "EMPLOYEE_ID";
+            // 
             // ultraGroupBox3
             // 
-            this.ultraGroupBox3.Controls.Add(this.ultraGrid2);
+            this.ultraGroupBox3.Controls.Add(this.panel1);
             this.ultraGroupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ultraGroupBox3.Location = new System.Drawing.Point(236, 328);
             this.ultraGroupBox3.Name = "ultraGroupBox3";
             this.ultraGroupBox3.Size = new System.Drawing.Size(701, 209);
-            this.ultraGroupBox3.TabIndex = 3;
+            this.ultraGroupBox3.TabIndex = 13;
             this.ultraGroupBox3.Text = "员工信息";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.ultraGrid2);
+            this.panel1.Controls.Add(this._panel1_Toolbars_Dock_Area_Left);
+            this.panel1.Controls.Add(this._panel1_Toolbars_Dock_Area_Right);
+            this.panel1.Controls.Add(this._panel1_Toolbars_Dock_Area_Top);
+            this.panel1.Controls.Add(this._panel1_Toolbars_Dock_Area_Bottom);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(3, 18);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(695, 188);
+            this.panel1.TabIndex = 0;
             // 
             // ultraGrid2
             // 
@@ -250,18 +329,49 @@
             appearance3.BorderColor = System.Drawing.SystemColors.InactiveCaption;
             appearance3.TextVAlignAsString = "Middle";
             this.ultraGrid2.DisplayLayout.Appearance = appearance3;
+            ultraGridColumn11.CellActivation = Infragistics.Win.UltraWinGrid.Activation.ActivateOnly;
             ultraGridColumn11.Header.VisiblePosition = 0;
+            ultraGridColumn11.RowLayoutColumnInfo.OriginX = 2;
+            ultraGridColumn11.RowLayoutColumnInfo.OriginY = 0;
+            ultraGridColumn11.RowLayoutColumnInfo.SpanX = 2;
+            ultraGridColumn11.RowLayoutColumnInfo.SpanY = 2;
+            ultraGridColumn12.CellActivation = Infragistics.Win.UltraWinGrid.Activation.ActivateOnly;
             ultraGridColumn12.Header.VisiblePosition = 1;
+            ultraGridColumn12.RowLayoutColumnInfo.OriginX = 4;
+            ultraGridColumn12.RowLayoutColumnInfo.OriginY = 0;
             ultraGridColumn12.RowLayoutColumnInfo.PreferredCellSize = new System.Drawing.Size(163, 0);
+            ultraGridColumn12.RowLayoutColumnInfo.SpanX = 2;
+            ultraGridColumn12.RowLayoutColumnInfo.SpanY = 2;
+            ultraGridColumn13.CellActivation = Infragistics.Win.UltraWinGrid.Activation.ActivateOnly;
             ultraGridColumn13.Header.VisiblePosition = 2;
+            ultraGridColumn13.RowLayoutColumnInfo.OriginX = 6;
+            ultraGridColumn13.RowLayoutColumnInfo.OriginY = 0;
             ultraGridColumn13.RowLayoutColumnInfo.PreferredCellSize = new System.Drawing.Size(125, 0);
+            ultraGridColumn13.RowLayoutColumnInfo.SpanX = 2;
+            ultraGridColumn13.RowLayoutColumnInfo.SpanY = 2;
+            ultraGridColumn14.CellActivation = Infragistics.Win.UltraWinGrid.Activation.ActivateOnly;
             ultraGridColumn14.Header.VisiblePosition = 3;
+            ultraGridColumn14.RowLayoutColumnInfo.OriginX = 8;
+            ultraGridColumn14.RowLayoutColumnInfo.OriginY = 0;
             ultraGridColumn14.RowLayoutColumnInfo.PreferredCellSize = new System.Drawing.Size(200, 0);
+            ultraGridColumn14.RowLayoutColumnInfo.SpanX = 2;
+            ultraGridColumn14.RowLayoutColumnInfo.SpanY = 2;
+            ultraGridColumn15.Header.VisiblePosition = 4;
+            ultraGridColumn15.RowLayoutColumnInfo.OriginX = 0;
+            ultraGridColumn15.RowLayoutColumnInfo.OriginY = 0;
+            ultraGridColumn15.RowLayoutColumnInfo.PreferredCellSize = new System.Drawing.Size(44, 0);
+            ultraGridColumn15.RowLayoutColumnInfo.SpanX = 2;
+            ultraGridColumn15.RowLayoutColumnInfo.SpanY = 2;
+            ultraGridColumn15.Style = Infragistics.Win.UltraWinGrid.ColumnStyle.CheckBox;
+            ultraGridColumn16.Header.VisiblePosition = 5;
+            ultraGridColumn16.Hidden = true;
             ultraGridBand2.Columns.AddRange(new object[] {
             ultraGridColumn11,
             ultraGridColumn12,
             ultraGridColumn13,
-            ultraGridColumn14});
+            ultraGridColumn14,
+            ultraGridColumn15,
+            ultraGridColumn16});
             ultraGridBand2.RowLayoutStyle = Infragistics.Win.UltraWinGrid.RowLayoutStyle.GroupLayout;
             this.ultraGrid2.DisplayLayout.BandsSerializer.Add(ultraGridBand2);
             this.ultraGrid2.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.WindowsVista;
@@ -305,45 +415,83 @@
             this.ultraGrid2.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
             this.ultraGrid2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ultraGrid2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ultraGrid2.Location = new System.Drawing.Point(3, 18);
+            this.ultraGrid2.Location = new System.Drawing.Point(0, 25);
             this.ultraGrid2.Name = "ultraGrid2";
-            this.ultraGrid2.Size = new System.Drawing.Size(695, 188);
-            this.ultraGrid2.TabIndex = 0;
+            this.ultraGrid2.Size = new System.Drawing.Size(695, 163);
+            this.ultraGrid2.TabIndex = 1;
             // 
-            // dataSet1
+            // _panel1_Toolbars_Dock_Area_Left
             // 
-            this.dataSet1.DataSetName = "NewDataSet";
-            this.dataSet1.Tables.AddRange(new System.Data.DataTable[] {
-            this.dataTable1});
+            this._panel1_Toolbars_Dock_Area_Left.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
+            this._panel1_Toolbars_Dock_Area_Left.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(206)))), ((int)(((byte)(228)))));
+            this._panel1_Toolbars_Dock_Area_Left.DockedPosition = Infragistics.Win.UltraWinToolbars.DockedPosition.Left;
+            this._panel1_Toolbars_Dock_Area_Left.ForeColor = System.Drawing.SystemColors.ControlText;
+            this._panel1_Toolbars_Dock_Area_Left.Location = new System.Drawing.Point(0, 25);
+            this._panel1_Toolbars_Dock_Area_Left.Name = "_panel1_Toolbars_Dock_Area_Left";
+            this._panel1_Toolbars_Dock_Area_Left.Size = new System.Drawing.Size(0, 163);
+            this._panel1_Toolbars_Dock_Area_Left.ToolbarsManager = this.ultraToolbarsManager1;
             // 
-            // dataTable1
+            // ultraToolbarsManager1
             // 
-            this.dataTable1.Columns.AddRange(new System.Data.DataColumn[] {
-            this.dataColumn1,
-            this.dataColumn2,
-            this.dataColumn3,
-            this.dataColumn4});
-            this.dataTable1.TableName = "Table1";
+            appearance28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(206)))), ((int)(((byte)(228)))));
+            this.ultraToolbarsManager1.Appearance = appearance28;
+            this.ultraToolbarsManager1.DesignerFlags = 1;
+            this.ultraToolbarsManager1.DockWithinContainer = this.panel1;
+            this.ultraToolbarsManager1.LockToolbars = true;
+            this.ultraToolbarsManager1.ShowQuickCustomizeButton = false;
+            ultraToolbar1.DockedColumn = 0;
+            ultraToolbar1.DockedRow = 0;
+            ultraToolbar1.NonInheritedTools.AddRange(new Infragistics.Win.UltraWinToolbars.ToolBase[] {
+            buttonTool1,
+            buttonTool2});
+            ultraToolbar1.Text = "UltraToolbar1";
+            this.ultraToolbarsManager1.Toolbars.AddRange(new Infragistics.Win.UltraWinToolbars.UltraToolbar[] {
+            ultraToolbar1});
+            appearance30.Image = global::com.ccf.bip.biz.ResourceImg.addSub;
+            buttonTool3.SharedPropsInternal.AppearancesSmall.Appearance = appearance30;
+            buttonTool3.SharedPropsInternal.Caption = "添加";
+            buttonTool3.SharedPropsInternal.DisplayStyle = Infragistics.Win.UltraWinToolbars.ToolDisplayStyle.ImageAndText;
+            appearance29.Image = global::com.ccf.bip.biz.ResourceImg.delete;
+            buttonTool4.SharedPropsInternal.AppearancesSmall.Appearance = appearance29;
+            buttonTool4.SharedPropsInternal.Caption = "移除";
+            buttonTool4.SharedPropsInternal.DisplayStyle = Infragistics.Win.UltraWinToolbars.ToolDisplayStyle.ImageAndText;
+            this.ultraToolbarsManager1.Tools.AddRange(new Infragistics.Win.UltraWinToolbars.ToolBase[] {
+            buttonTool3,
+            buttonTool4});
+            this.ultraToolbarsManager1.ToolClick += new Infragistics.Win.UltraWinToolbars.ToolClickEventHandler(this.ultraToolbarsManager1_ToolClick);
             // 
-            // dataColumn1
+            // _panel1_Toolbars_Dock_Area_Right
             // 
-            this.dataColumn1.Caption = "员工编号";
-            this.dataColumn1.ColumnName = "EMPLOYEE_CODE";
+            this._panel1_Toolbars_Dock_Area_Right.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
+            this._panel1_Toolbars_Dock_Area_Right.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(206)))), ((int)(((byte)(228)))));
+            this._panel1_Toolbars_Dock_Area_Right.DockedPosition = Infragistics.Win.UltraWinToolbars.DockedPosition.Right;
+            this._panel1_Toolbars_Dock_Area_Right.ForeColor = System.Drawing.SystemColors.ControlText;
+            this._panel1_Toolbars_Dock_Area_Right.Location = new System.Drawing.Point(695, 25);
+            this._panel1_Toolbars_Dock_Area_Right.Name = "_panel1_Toolbars_Dock_Area_Right";
+            this._panel1_Toolbars_Dock_Area_Right.Size = new System.Drawing.Size(0, 163);
+            this._panel1_Toolbars_Dock_Area_Right.ToolbarsManager = this.ultraToolbarsManager1;
             // 
-            // dataColumn2
+            // _panel1_Toolbars_Dock_Area_Top
             // 
-            this.dataColumn2.Caption = "员工姓名";
-            this.dataColumn2.ColumnName = "EMPLOYEE_NAME";
+            this._panel1_Toolbars_Dock_Area_Top.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
+            this._panel1_Toolbars_Dock_Area_Top.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(206)))), ((int)(((byte)(228)))));
+            this._panel1_Toolbars_Dock_Area_Top.DockedPosition = Infragistics.Win.UltraWinToolbars.DockedPosition.Top;
+            this._panel1_Toolbars_Dock_Area_Top.ForeColor = System.Drawing.SystemColors.ControlText;
+            this._panel1_Toolbars_Dock_Area_Top.Location = new System.Drawing.Point(0, 0);
+            this._panel1_Toolbars_Dock_Area_Top.Name = "_panel1_Toolbars_Dock_Area_Top";
+            this._panel1_Toolbars_Dock_Area_Top.Size = new System.Drawing.Size(695, 25);
+            this._panel1_Toolbars_Dock_Area_Top.ToolbarsManager = this.ultraToolbarsManager1;
             // 
-            // dataColumn3
+            // _panel1_Toolbars_Dock_Area_Bottom
             // 
-            this.dataColumn3.Caption = "系统帐号";
-            this.dataColumn3.ColumnName = "USER_ACCOUNT";
-            // 
-            // dataColumn4
-            // 
-            this.dataColumn4.Caption = "所在组织";
-            this.dataColumn4.ColumnName = "ORGANIZATION_NAME";
+            this._panel1_Toolbars_Dock_Area_Bottom.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping;
+            this._panel1_Toolbars_Dock_Area_Bottom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(206)))), ((int)(((byte)(228)))));
+            this._panel1_Toolbars_Dock_Area_Bottom.DockedPosition = Infragistics.Win.UltraWinToolbars.DockedPosition.Bottom;
+            this._panel1_Toolbars_Dock_Area_Bottom.ForeColor = System.Drawing.SystemColors.ControlText;
+            this._panel1_Toolbars_Dock_Area_Bottom.Location = new System.Drawing.Point(0, 188);
+            this._panel1_Toolbars_Dock_Area_Bottom.Name = "_panel1_Toolbars_Dock_Area_Bottom";
+            this._panel1_Toolbars_Dock_Area_Bottom.Size = new System.Drawing.Size(695, 0);
+            this._panel1_Toolbars_Dock_Area_Bottom.ToolbarsManager = this.ultraToolbarsManager1;
             // 
             // FormPost
             // 
@@ -363,11 +511,13 @@
             this.ultraGroupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ultraGrid1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sysPostBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraGroupBox3)).EndInit();
-            this.ultraGroupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ultraGrid2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraGroupBox3)).EndInit();
+            this.ultraGroupBox3.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ultraGrid2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraToolbarsManager1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -378,8 +528,6 @@
         private Infragistics.Win.UltraWinTree.UltraTree ultraTree1;
         private Infragistics.Win.Misc.UltraGroupBox ultraGroupBox2;
         private Infragistics.Win.UltraWinGrid.UltraGrid ultraGrid1;
-        private Infragistics.Win.Misc.UltraGroupBox ultraGroupBox3;
-        private Infragistics.Win.UltraWinGrid.UltraGrid ultraGrid2;
         private System.Windows.Forms.BindingSource sysPostBindingSource;
         private System.Data.DataSet dataSet1;
         private System.Data.DataTable dataTable1;
@@ -387,5 +535,15 @@
         private System.Data.DataColumn dataColumn2;
         private System.Data.DataColumn dataColumn3;
         private System.Data.DataColumn dataColumn4;
+        private Infragistics.Win.UltraWinToolbars.UltraToolbarsManager ultraToolbarsManager1;
+        private Infragistics.Win.Misc.UltraGroupBox ultraGroupBox3;
+        private System.Windows.Forms.Panel panel1;
+        private Infragistics.Win.UltraWinGrid.UltraGrid ultraGrid2;
+        private Infragistics.Win.UltraWinToolbars.UltraToolbarsDockArea _panel1_Toolbars_Dock_Area_Left;
+        private Infragistics.Win.UltraWinToolbars.UltraToolbarsDockArea _panel1_Toolbars_Dock_Area_Right;
+        private Infragistics.Win.UltraWinToolbars.UltraToolbarsDockArea _panel1_Toolbars_Dock_Area_Top;
+        private Infragistics.Win.UltraWinToolbars.UltraToolbarsDockArea _panel1_Toolbars_Dock_Area_Bottom;
+        private System.Data.DataColumn dataColumn5;
+        private System.Data.DataColumn dataColumn6;
     }
 }

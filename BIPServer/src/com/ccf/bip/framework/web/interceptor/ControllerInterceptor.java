@@ -11,7 +11,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 public class ControllerInterceptor implements HandlerInterceptor {
-    private static Logger logger = Logger.getLogger(ControllerInterceptor.class);
+    private static final Logger logger = Logger.getLogger(ControllerInterceptor.class);
 	private List<String> excludedUrls;// 定义不经过拦截的路径，如登陆
 
 	/**
@@ -20,7 +20,7 @@ public class ControllerInterceptor implements HandlerInterceptor {
 	public void afterCompletion(HttpServletRequest request,
 			HttpServletResponse response, Object obj, Exception exception)
 			throws Exception {
-	    logger.info("ControllerInterceptor.afterCompletion()");
+	    logger.debug("ControllerInterceptor.afterCompletion()");
 	}
 
 	/**
@@ -28,7 +28,7 @@ public class ControllerInterceptor implements HandlerInterceptor {
 	 */
 	public void postHandle(HttpServletRequest request, HttpServletResponse response,
 			Object arg2, ModelAndView arg3) throws Exception {
-	    logger.info("ControllerInterceptor.postHandle()");
+	    logger.debug("ControllerInterceptor.postHandle()");
 	}
 
 	/**

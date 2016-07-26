@@ -38,9 +38,13 @@
     <Reference Include="Infragistics2.Shared.v9.2, Version=9.2.20092.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
     <Reference Include="Infragistics2.Win.Misc.v9.2, Version=9.2.20092.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
     <Reference Include="Infragistics2.Win.UltraWinEditors.v9.2, Version=9.2.20092.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics2.Win.UltraWinGrid.v9.2, Version=9.2.20092.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
     <Reference Include="Infragistics2.Win.UltraWinToolbars.v9.2, Version=9.2.20092.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
     <Reference Include="Infragistics2.Win.UltraWinTree.v9.2, Version=9.2.20092.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
     <Reference Include="Infragistics2.Win.v9.2, Version=9.2.20092.1003, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL" />
+    <Reference Include="MetroFramework.Design, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL" />
+    <Reference Include="MetroFramework.Fonts, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL" />
     <Reference Include="System" />
@@ -65,11 +69,14 @@
     <Compile Include="core\BipGuid.cs" />
     <Compile Include="core\Globals.cs" />
     <Compile Include="core\Enums.cs" />
-    <Compile Include="core\ServerInfo.cs" />
+    <Compile Include="core\ServerConfig.cs" />
     <Compile Include="core\Win32API.cs" />
+    <Compile Include="entity\FileInfo.cs" />
+    <Compile Include="entity\FileVersion.cs" />
     <Compile Include="entity\ServerStatus.cs" />
     <Compile Include="entity\SysDictionary.cs" />
     <Compile Include="entity\SysEmployee.cs" />
+    <Compile Include="entity\SysEmployeePost.cs" />
     <Compile Include="entity\SysFunction.cs" />
     <Compile Include="entity\SysOrganization.cs" />
     <Compile Include="entity\SysPost.cs" />
@@ -82,6 +89,9 @@
     <Compile Include="core\BipException.cs" />
     <Compile Include="core\ParameterInfo.cs" />
     <Compile Include="core\ReturnInfo.cs" />
+    <Compile Include="form\BipMetroForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="form\BipStyleBuilder.cs" />
     <Compile Include="form\control\BipImageList.cs">
       <SubType>UserControl</SubType>
@@ -97,6 +107,12 @@
     </Compile>
     <Compile Include="form\control\ComboBoxTree.cs">
       <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="form\control\IconTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="form\control\IconTextBox.Designer.cs">
+      <DependentUpon>IconTextBox.cs</DependentUpon>
     </Compile>
     <Compile Include="form\control\ImageViewer.cs">
       <SubType>Form</SubType>
@@ -117,11 +133,19 @@
     <Compile Include="hessian\HessianConnectionFactory.cs" />
     <Compile Include="hessian\IHessianController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="server\Dictionary.cs" />
+    <Compile Include="server\NetFileTransfer.cs" />
+    <Compile Include="util\EncryptionUtil.cs" />
     <Compile Include="util\FileUtil.cs" />
     <Compile Include="util\ImageUtil.cs" />
     <Compile Include="util\JSONUtil.cs" />
     <Compile Include="util\NetworkUtil.cs" />
+    <Compile Include="util\StringUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="form\control\BipImageList.resx">
@@ -130,6 +154,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="form\control\BipTableView.resx">
       <DependentUpon>BipTableView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\control\IconTextBox.resx">
+      <DependentUpon>IconTextBox.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="form\control\ImageViewer.resx">
@@ -142,6 +170,11 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\check.png" />

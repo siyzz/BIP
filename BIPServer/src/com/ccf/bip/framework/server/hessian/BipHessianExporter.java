@@ -1,12 +1,14 @@
 package com.ccf.bip.framework.server.hessian;
 
 import java.io.IOException;
+//import java.util.Enumeration;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
 import org.springframework.remoting.caucho.HessianExporter;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.HttpRequestHandler;
@@ -26,6 +28,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/hessian") 
 public class BipHessianExporter extends HessianExporter implements HttpRequestHandler{    
+	private static final Logger logger = Logger.getLogger(BipHessianExporter.class);
+	
     @Resource(name="hessianController")
     public void setService(IHessianController controller){
         super.setService(controller);
@@ -37,12 +41,13 @@ public class BipHessianExporter extends HessianExporter implements HttpRequestHa
             throws ServletException, IOException {
         // TODO Auto-generated method stub
         response.setContentType(CONTENT_TYPE_HESSIAN);
+        logger.info(request.getRemoteAddr());
         try {
+        	BipHessianContext.setRequest(request);
             this.invoke(request.getInputStream(), response.getOutputStream());
         }
         catch (Throwable e) {
-            // TODO Auto-generated catch block
-            
+            // TODO Auto-generated catch block            
         }
     }
 

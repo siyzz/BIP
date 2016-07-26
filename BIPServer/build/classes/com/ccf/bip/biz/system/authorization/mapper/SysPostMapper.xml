@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ccf.bip.biz.system.authorization.mapper.SysPostMapper" >
+  <resultMap id="BaseResultMap" type="com.ccf.bip.biz.system.authorization.mapper.SysPost" >
+    <id column="POST_ID" property="postId" jdbcType="VARCHAR" />
+    <result column="POST_CODE" property="postCode" jdbcType="VARCHAR" />
+    <result column="POST_NAME" property="postName" jdbcType="VARCHAR" />
+    <result column="POST_TYPE" property="postType" jdbcType="VARCHAR" />
+    <result column="POST_LEVEL" property="postLevel" jdbcType="VARCHAR" />
+    <result column="POST_ORG_ID" property="postOrgId" jdbcType="VARCHAR" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+    <result column="ROLE_ID" property="roleId" jdbcType="VARCHAR" />
+    <result column="ORGANIZATION_NAME" property="postOrgName" jdbcType="VARCHAR" />
+    <result column="ROLE_NAME" property="roleName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    POST_ID, POST_CODE, POST_NAME, POST_TYPE, POST_LEVEL, POST_ORG_ID, REMARK, ROLE_ID
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from SYS_POST
+    where POST_ID = #{postId,jdbcType=VARCHAR}
+  </select>
+  <select id="selectByEmployeeId" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    SELECT P.POST_ID,P.POST_CODE,P.POST_NAME,P.POST_TYPE,P.POST_LEVEL,P.POST_ORG_ID,P.REMARK,P.ROLE_ID
+      FROM SYS_POST P, SYS_EMPLOYEE_POST R
+     WHERE P.POST_ID = R.POST_ID
+       AND R.EMPLOYEE_ID =  #{employeeId,jdbcType=VARCHAR}}
+  </select>
+  <select id="selectByOrganizationId" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select P.POST_ID, P.POST_CODE, P.POST_NAME, P.POST_TYPE, P.POST_LEVEL, P.POST_ORG_ID, P.REMARK, P.ROLE_ID
+           ,O.ORGANIZATION_NAME,R.ROLE_NAME
+      from SYS_POST P,SYS_ORGANIZATION O,SYS_ROLE R
+     where P.POST_ORG_ID = O.ORGANIZATION_ID AND P.ROLE_ID = R.ROLE_ID
+       and P.POST_ORG_ID = #{postOrgId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from SYS_POST
+    where POST_ID = #{postId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.ccf.bip.biz.system.authorization.mapper.SysPost" >
+    insert into SYS_POST (POST_ID, POST_CODE, POST_NAME, 
+      POST_TYPE, POST_LEVEL, POST_ORG_ID, 
+      REMARK, ROLE_ID)
+    values (#{postId,jdbcType=VARCHAR}, #{postCode,jdbcType=VARCHAR}, #{postName,jdbcType=VARCHAR}, 
+      #{postType,jdbcType=VARCHAR}, #{postLevel,jdbcType=VARCHAR}, #{postOrgId,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{roleId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ccf.bip.biz.system.authorization.mapper.SysPost" >
+    insert into SYS_POST
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="postId != null" >
+        POST_ID,
+      </if>
+      <if test="postCode != null" >
+        POST_CODE,
+      </if>
+      <if test="postName != null" >
+        POST_NAME,
+      </if>
+      <if test="postType != null" >
+        POST_TYPE,
+      </if>
+      <if test="postLevel != null" >
+        POST_LEVEL,
+      </if>
+      <if test="postOrgId != null" >
+        POST_ORG_ID,
+      </if>
+      <if test="remark != null" >
+        REMARK,
+      </if>
+      <if test="roleId != null" >
+        ROLE_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="postId != null" >
+        #{postId,jdbcType=VARCHAR},
+      </if>
+      <if test="postCode != null" >
+        #{postCode,jdbcType=VARCHAR},
+      </if>
+      <if test="postName != null" >
+        #{postName,jdbcType=VARCHAR},
+      </if>
+      <if test="postType != null" >
+        #{postType,jdbcType=VARCHAR},
+      </if>
+      <if test="postLevel != null" >
+        #{postLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="postOrgId != null" >
+        #{postOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="roleId != null" >
+        #{roleId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ccf.bip.biz.system.authorization.mapper.SysPost" >
+    update SYS_POST
+    <set >
+      <if test="postCode != null" >
+        POST_CODE = #{postCode,jdbcType=VARCHAR},
+      </if>
+      <if test="postName != null" >
+        POST_NAME = #{postName,jdbcType=VARCHAR},
+      </if>
+      <if test="postType != null" >
+        POST_TYPE = #{postType,jdbcType=VARCHAR},
+      </if>
+      <if test="postLevel != null" >
+        POST_LEVEL = #{postLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="postOrgId != null" >
+        POST_ORG_ID = #{postOrgId,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="roleId != null" >
+        ROLE_ID = #{roleId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where POST_ID = #{postId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ccf.bip.biz.system.authorization.mapper.SysPost" >
+    update SYS_POST
+    set POST_CODE = #{postCode,jdbcType=VARCHAR},
+      POST_NAME = #{postName,jdbcType=VARCHAR},
+      POST_TYPE = #{postType,jdbcType=VARCHAR},
+      POST_LEVEL = #{postLevel,jdbcType=VARCHAR},
+      POST_ORG_ID = #{postOrgId,jdbcType=VARCHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      ROLE_ID = #{roleId,jdbcType=VARCHAR}
+    where POST_ID = #{postId,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -10,10 +10,11 @@ using com.ccf.bip.framework.form;
 using com.ccf.bip.framework.core;
 using com.ccf.bip.framework.server;
 using com.ccf.bip.biz.system.authorization.mapper;
+using MetroFramework.Forms;
 
 namespace com.ccf.bip.biz.sys
 {
-    public partial class DlgRoleEdit : BipForm
+    public partial class DlgRoleEdit : BipMetroForm
     {
         private const string SERVICE_NAME = "com.ccf.bip.biz.system.authorization.service.RoleService";
         private SysRole _role;

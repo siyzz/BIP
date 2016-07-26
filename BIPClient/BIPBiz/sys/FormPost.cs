@@ -15,6 +15,7 @@ using com.ccf.bip.biz.system.authorization.mapper;
 using Infragistics.Win.UltraWinGrid;
 using com.ccf.bip.biz.metadata.employee.mapper;
 using System.Collections;
+using MetroFramework;
 
 namespace com.ccf.bip.biz.sys
 {
@@ -57,7 +58,7 @@ namespace com.ccf.bip.biz.sys
             UltraTreeNode node = ultraTree1.ActiveNode;
             if(node == null)
             {
-                MessageBox.Show("请选择需要新增岗位的组织机构！");
+                MetroMessageBox.Show(this,"请选择需要新增岗位的组织机构！");
                 return;
             }
             SysPost post = new SysPost();
@@ -74,7 +75,7 @@ namespace com.ccf.bip.biz.sys
             UltraGridRow row = ultraGrid1.ActiveRow;
             if (row == null)
             {
-                MessageBox.Show("请选择需要修改的岗位！");
+                MetroMessageBox.Show(this,"请选择需要修改的岗位！");
                 return;
             }
             SysPost post = row.ListObject as SysPost;
@@ -89,12 +90,12 @@ namespace com.ccf.bip.biz.sys
             UltraGridRow row = ultraGrid1.ActiveRow;
             if (row == null)
             {
-                MessageBox.Show("请选择需要修改的岗位！");
+                MetroMessageBox.Show(this,"请选择需要修改的岗位！");
                 return;
             }
             SysPost post = row.ListObject as SysPost;
             string orgId = post.PostOrgId;
-            if (MessageBox.Show("是否确定删除岗位" + post.PostName + "？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MetroMessageBox.Show(this,"是否确定删除岗位" + post.PostName + "？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 this.Update(Globals.POST_SERVICE_NAME, "delete", new object[] { post.PostId });
                 QueryPost(orgId);
@@ -133,6 +134,47 @@ namespace com.ccf.bip.biz.sys
             string postId = ((sender as UltraGrid).ActiveRow.ListObject as SysPost).PostId;
             dataTable1.Clear();
             dataTable1.Merge(this.FindDataTable(Globals.EMPLOYEE_SERVICE_NAME, "findByPostId", new object[] { postId }));
+        }
+
+        private void ultraToolbarsManager1_ToolClick(object sender, Infragistics.Win.UltraWinToolbars.ToolClickEventArgs e)
+        {
+            switch (e.Tool.Key)
+            {
+                case "Add":
+                    if (ultraGrid1.ActiveRow != null)
+                    {
+                        DlgPostEmployeeAdd dlg = new DlgPostEmployeeAdd(this.Action);
+                        dlg.Post = ultraGrid1.ActiveRow.ListObject as SysPost;
+                        if (dlg.ShowDialog(this) == DialogResult.OK)
+                        {
+                            ultraGrid1_AfterRowActivate(ultraGrid1, new EventArgs());
+                        }
+                    }
+                    break;
+                case "Remove":
+                    if(ultraGrid1.ActiveRow != null)
+                    {
+                        ultraGrid2.UpdateData();
+                        string postId = (ultraGrid1.ActiveRow.ListObject as SysPost).PostId;
+                        ArrayList list = new ArrayList();
+                        foreach(UltraGridRow row in ultraGrid2.Rows)
+                        {
+                            if (Convert.ToBoolean(row.Cells["CHK"].Value))
+                            {
+                                SysEmployeePost sep = new SysEmployeePost();
+                                sep.PostId = postId;
+                                sep.EmployeeId = row.Cells["EMPLOYEE_ID"].Value.ToString();
+                                list.Add(sep);
+                            }
+                        }
+                        if (list.Count > 0)
+                        {
+                            this.Update(Globals.POST_SERVICE_NAME, "removeEmployees", new object[] { list });
+                            ultraGrid1_AfterRowActivate(ultraGrid1, new EventArgs());
+                        }
+                    }
+                    break;
+            }
         }
     }
 }

@@ -72,17 +72,13 @@
             Infragistics.Win.UltraWinTabControl.UltraTab ultraTab3 = new Infragistics.Win.UltraWinTabControl.UltraTab();
             Infragistics.Win.UltraWinTabControl.UltraTab ultraTab4 = new Infragistics.Win.UltraWinTabControl.UltraTab();
             this.ultraGridRowEditTemplate1 = new Infragistics.Win.UltraWinGrid.UltraGridRowEditTemplate();
-            this.btnChoose = new Infragistics.Win.Misc.UltraButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnTemplateDel = new Infragistics.Win.Misc.UltraButton();
             this.ugcpImage = new Infragistics.Win.UltraWinGrid.UltraGridCellProxy();
             this.lblImage = new Infragistics.Win.Misc.UltraLabel();
             this.ugcpFunctionName = new Infragistics.Win.UltraWinGrid.UltraGridCellProxy();
             this.lblFunctionName = new Infragistics.Win.Misc.UltraLabel();
             this.ugcpKey = new Infragistics.Win.UltraWinGrid.UltraGridCellProxy();
             this.lblKey = new Infragistics.Win.Misc.UltraLabel();
-            this.btnTemplateOk = new Infragistics.Win.Misc.UltraButton();
-            this.btnTemplateCancel = new Infragistics.Win.Misc.UltraButton();
             this.ultraTabPageControl1 = new Infragistics.Win.UltraWinTabControl.UltraTabPageControl();
             this.bilSystemIcon = new com.ccf.bip.framework.form.control.BipImageList();
             this.txtSystemId = new System.Windows.Forms.TextBox();
@@ -143,6 +139,10 @@
             this.ultraTabSharedControlsPage1 = new Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialogAssembly = new System.Windows.Forms.OpenFileDialog();
+            this.metroButtonChoose = new MetroFramework.Controls.MetroButton();
+            this.metroButtonOK = new MetroFramework.Controls.MetroButton();
+            this.metroButtonCancel = new MetroFramework.Controls.MetroButton();
+            this.metroButtonDel = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.ultraGridRowEditTemplate1)).BeginInit();
             this.ultraGridRowEditTemplate1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -182,34 +182,23 @@
             this.ultraGridRowEditTemplate1.ColumnData.Add(new Infragistics.Win.UltraWinGrid.UltraGridRowEditTemplate.ColumnDescriptorData("Tag", typeof(string), "SysFunction", 0));
             this.ultraGridRowEditTemplate1.ColumnData.Add(new Infragistics.Win.UltraWinGrid.UltraGridRowEditTemplate.ColumnDescriptorData("Seq", typeof(short), "SysFunction", 0));
             this.ultraGridRowEditTemplate1.ColumnData.Add(new Infragistics.Win.UltraWinGrid.UltraGridRowEditTemplate.ColumnDescriptorData("Assemblyname", typeof(string), "SysFunction", 0));
-            this.ultraGridRowEditTemplate1.Controls.Add(this.btnChoose);
+            this.ultraGridRowEditTemplate1.Controls.Add(this.metroButtonDel);
+            this.ultraGridRowEditTemplate1.Controls.Add(this.metroButtonCancel);
+            this.ultraGridRowEditTemplate1.Controls.Add(this.metroButtonOK);
+            this.ultraGridRowEditTemplate1.Controls.Add(this.metroButtonChoose);
             this.ultraGridRowEditTemplate1.Controls.Add(this.pictureBox1);
-            this.ultraGridRowEditTemplate1.Controls.Add(this.btnTemplateDel);
             this.ultraGridRowEditTemplate1.Controls.Add(this.ugcpImage);
             this.ultraGridRowEditTemplate1.Controls.Add(this.lblImage);
             this.ultraGridRowEditTemplate1.Controls.Add(this.ugcpFunctionName);
             this.ultraGridRowEditTemplate1.Controls.Add(this.lblFunctionName);
             this.ultraGridRowEditTemplate1.Controls.Add(this.ugcpKey);
             this.ultraGridRowEditTemplate1.Controls.Add(this.lblKey);
-            this.ultraGridRowEditTemplate1.Controls.Add(this.btnTemplateOk);
-            this.ultraGridRowEditTemplate1.Controls.Add(this.btnTemplateCancel);
-            this.ultraGridRowEditTemplate1.DialogSettings.AcceptButton = this.btnTemplateOk;
-            this.ultraGridRowEditTemplate1.DialogSettings.CancelButton = this.btnTemplateCancel;
             this.ultraGridRowEditTemplate1.Location = new System.Drawing.Point(368, 253);
             this.ultraGridRowEditTemplate1.Name = "ultraGridRowEditTemplate1";
             this.ultraGridRowEditTemplate1.Size = new System.Drawing.Size(320, 155);
             this.ultraGridRowEditTemplate1.TabIndex = 40;
             this.ultraGridRowEditTemplate1.Visible = false;
             this.ultraGridRowEditTemplate1.RowChanged += new Infragistics.Win.UltraWinGrid.RowEditTemplateRowChangedEventHandler(this.ultraGridRowEditTemplate1_RowChanged);
-            // 
-            // btnChoose
-            // 
-            this.btnChoose.Location = new System.Drawing.Point(186, 69);
-            this.btnChoose.Name = "btnChoose";
-            this.btnChoose.Size = new System.Drawing.Size(30, 23);
-            this.btnChoose.TabIndex = 10;
-            this.btnChoose.Text = "...&C";
-            this.btnChoose.Click += new System.EventHandler(this.btnChoose_Click);
             // 
             // pictureBox1
             // 
@@ -219,15 +208,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
-            // 
-            // btnTemplateDel
-            // 
-            this.btnTemplateDel.Location = new System.Drawing.Point(226, 114);
-            this.btnTemplateDel.Name = "btnTemplateDel";
-            this.btnTemplateDel.Size = new System.Drawing.Size(75, 23);
-            this.btnTemplateDel.TabIndex = 8;
-            this.btnTemplateDel.Text = "删除(&D)";
-            this.btnTemplateDel.Click += new System.EventHandler(this.btnTemplateDel_Click);
             // 
             // ugcpImage
             // 
@@ -283,24 +263,6 @@
             this.lblKey.TabIndex = 0;
             this.lblKey.Tag = "Key";
             this.lblKey.Text = "关键字：";
-            // 
-            // btnTemplateOk
-            // 
-            this.btnTemplateOk.Location = new System.Drawing.Point(30, 114);
-            this.btnTemplateOk.Name = "btnTemplateOk";
-            this.btnTemplateOk.Size = new System.Drawing.Size(75, 23);
-            this.btnTemplateOk.TabIndex = 6;
-            this.btnTemplateOk.Text = "确定(&O)";
-            this.btnTemplateOk.Click += new System.EventHandler(this.btnTemplateOk_Click);
-            // 
-            // btnTemplateCancel
-            // 
-            this.btnTemplateCancel.Location = new System.Drawing.Point(110, 114);
-            this.btnTemplateCancel.Name = "btnTemplateCancel";
-            this.btnTemplateCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnTemplateCancel.TabIndex = 7;
-            this.btnTemplateCancel.Text = "取消(&X)";
-            this.btnTemplateCancel.Click += new System.EventHandler(this.btnTemplateCancel_Click);
             // 
             // ultraTabPageControl1
             // 
@@ -986,7 +948,7 @@
             // 
             // ultraTabControl1
             // 
-            appearance9.BackColor = System.Drawing.Color.LightBlue;
+            appearance9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(206)))), ((int)(((byte)(228)))));
             this.ultraTabControl1.Appearance = appearance9;
             this.ultraTabControl1.Controls.Add(this.ultraTabSharedControlsPage1);
             this.ultraTabControl1.Controls.Add(this.ultraTabPageControl1);
@@ -998,7 +960,7 @@
             this.ultraTabControl1.Name = "ultraTabControl1";
             this.ultraTabControl1.SharedControlsPage = this.ultraTabSharedControlsPage1;
             this.ultraTabControl1.Size = new System.Drawing.Size(701, 596);
-            appearance2.BackColor = System.Drawing.Color.LightBlue;
+            appearance2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(206)))), ((int)(((byte)(228)))));
             this.ultraTabControl1.TabHeaderAreaAppearance = appearance2;
             this.ultraTabControl1.TabIndex = 1;
             this.ultraTabControl1.TabPadding = new System.Drawing.Size(20, 1);
@@ -1031,6 +993,46 @@
             // openFileDialogAssembly
             // 
             this.openFileDialogAssembly.Filter = "BIP动态链接库文件|*.dll";
+            // 
+            // metroButtonChoose
+            // 
+            this.metroButtonChoose.Location = new System.Drawing.Point(186, 70);
+            this.metroButtonChoose.Name = "metroButtonChoose";
+            this.metroButtonChoose.Size = new System.Drawing.Size(29, 20);
+            this.metroButtonChoose.TabIndex = 11;
+            this.metroButtonChoose.Text = "...";
+            this.metroButtonChoose.UseSelectable = true;
+            this.metroButtonChoose.Click += new System.EventHandler(this.btnChoose_Click);
+            // 
+            // metroButtonOK
+            // 
+            this.metroButtonOK.Location = new System.Drawing.Point(30, 114);
+            this.metroButtonOK.Name = "metroButtonOK";
+            this.metroButtonOK.Size = new System.Drawing.Size(75, 23);
+            this.metroButtonOK.TabIndex = 12;
+            this.metroButtonOK.Text = "确定(&O)";
+            this.metroButtonOK.UseSelectable = true;
+            this.metroButtonOK.Click += new System.EventHandler(this.btnTemplateOk_Click);
+            // 
+            // metroButtonCancel
+            // 
+            this.metroButtonCancel.Location = new System.Drawing.Point(110, 114);
+            this.metroButtonCancel.Name = "metroButtonCancel";
+            this.metroButtonCancel.Size = new System.Drawing.Size(75, 23);
+            this.metroButtonCancel.TabIndex = 13;
+            this.metroButtonCancel.Text = "取消(&X)";
+            this.metroButtonCancel.UseSelectable = true;
+            this.metroButtonCancel.Click += new System.EventHandler(this.btnTemplateCancel_Click);
+            // 
+            // metroButtonDel
+            // 
+            this.metroButtonDel.Location = new System.Drawing.Point(226, 114);
+            this.metroButtonDel.Name = "metroButtonDel";
+            this.metroButtonDel.Size = new System.Drawing.Size(75, 23);
+            this.metroButtonDel.TabIndex = 14;
+            this.metroButtonDel.Text = "删除(&D)";
+            this.metroButtonDel.UseSelectable = true;
+            this.metroButtonDel.Click += new System.EventHandler(this.btnTemplateDel_Click);
             // 
             // FormFunction
             // 
@@ -1135,13 +1137,13 @@
         private Infragistics.Win.Misc.UltraLabel lblFunctionName;
         private Infragistics.Win.UltraWinGrid.UltraGridCellProxy ugcpKey;
         private Infragistics.Win.Misc.UltraLabel lblKey;
-        private Infragistics.Win.Misc.UltraButton btnTemplateOk;
-        private Infragistics.Win.Misc.UltraButton btnTemplateCancel;
-        private Infragistics.Win.Misc.UltraButton btnTemplateDel;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private Infragistics.Win.Misc.UltraButton btnChoose;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.OpenFileDialog openFileDialogAssembly;
+        private MetroFramework.Controls.MetroButton metroButtonChoose;
+        private MetroFramework.Controls.MetroButton metroButtonOK;
+        private MetroFramework.Controls.MetroButton metroButtonDel;
+        private MetroFramework.Controls.MetroButton metroButtonCancel;
 
     }
 }

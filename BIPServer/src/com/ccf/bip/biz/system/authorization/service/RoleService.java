@@ -24,7 +24,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service("roleService")
 public class RoleService implements IRoleService {
-	private static Logger logger = Logger.getLogger(RoleService.class);
+	private static final Logger logger = Logger.getLogger(RoleService.class);
 	@Resource
 	private SysRoleMapper mapper;
 	@Resource
@@ -60,6 +60,8 @@ public class RoleService implements IRoleService {
 	public Integer authorize(String roleId, ArrayList<SysFunction> functionList) {
 		//删除原授权
 		roleFunctionMapper.deleteByRoleId(roleId);
+		
+		logger.debug(roleId);
 		//添加新授权
 		SysRoleFunction roleFunction = null;
 		for (int i = 0; i < functionList.size(); i++) {

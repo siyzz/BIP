@@ -3,10 +3,6 @@ package com.ccf.bip.framework.core;
 import com.ccf.bip.framework.util.StringUtil;
 
 import java.io.UnsupportedEncodingException;
-import java.nio.charset.Charset;
-import java.nio.charset.UnsupportedCharsetException;
-import java.text.NumberFormat;
-import java.util.Calendar;
 import java.util.Random;
 import java.util.UUID;
 import java.util.zip.CRC32;

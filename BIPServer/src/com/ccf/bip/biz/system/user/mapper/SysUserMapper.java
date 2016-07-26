@@ -14,8 +14,12 @@ public interface SysUserMapper {
     int updateByPrimaryKeySelective(SysUser record);
 
     int updateByPrimaryKey(SysUser record);
+
+    int updatePassword(SysUser record);
     
     SysUser selectByLogin(SysUser record);
+
+    String selectUserIdByEmployeeId(String employeeId);
     
     List<SysUser> selectByEmployeeId(String employeeId);
 }

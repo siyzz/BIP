@@ -10,10 +10,11 @@ using com.ccf.bip.framework.form;
 using com.ccf.bip.biz.system.authorization.mapper;
 using com.ccf.bip.framework.core;
 using com.ccf.bip.biz.metadata.org.mapper;
+using MetroFramework.Forms;
 
 namespace com.ccf.bip.biz.sys
 {
-    public partial class DlgPostEdit : BipForm
+    public partial class DlgPostEdit : BipMetroForm
     {
         private SysPost _post;
         public SysPost Post
@@ -41,12 +42,7 @@ namespace com.ccf.bip.biz.sys
             this.Action = action;
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void btnOK_Click(object sender, EventArgs e)
+        private void Save()
         {
             if (!ValidateInput())
                 return;
@@ -204,6 +200,16 @@ namespace com.ccf.bip.biz.sys
 
                 FillData(list, subNode);
             }
+        }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+            Save();
+        }
+
+        private void metroButtonCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

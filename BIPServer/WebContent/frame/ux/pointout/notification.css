@@ -1,0 +1,70 @@
+/*����Ȩ201309240949��ΪͬһĿ¼�µ�Notification.js����ʽ�ļ���������Ϊϵͳ��ͳһ����Ϣ��ʾ�ؼ���*/
+
+
+#instructions ul li {
+	list-style-type: disc;
+	list-style-position: outside;
+	font-size: 12px;
+	margin: 0px 0px 0px 20px;
+}
+
+/* Icons */
+.ux-notification-icon-information {
+	background-image: url('images/icon16_info.png');
+}
+
+.ux-notification-icon-error {
+	background-image: url('images/icon16_error.png');
+}
+
+/* Using standard theme */
+.ux-notification-window .x-window-body {
+	text-align: center;
+	padding: 15px 5px 15px 5px;
+	width: 200px;
+}
+
+/* Custom styling */
+.ux-notification-light .x-window-header {
+	background-color: transparent;
+}
+
+body .ux-notification-light {
+	background-image: url('images/fader.png');
+}
+
+.ux-notification-light .x-window-body {
+	text-align: center;
+	padding: 15px 5px 18px 5px;
+	width: 200px;
+	background-color: transparent;
+	border: 1px solid white;
+}
+.x-grid-back-red{
+	background:#FF0000;
+}
+
+.x-grid-record-lowblue td div{
+	background-color : #dbe5f1;
+	color:black;
+}
+.x-grid-record-highblue td div{
+	background-color : #b8cce4;
+	color:black;
+}
+.x-grid-record-lowbluedid td div{
+	background-color : #dbe5f1;
+	padding: 10px 5px 18px 5px;
+	color:black;
+	text-align : center;/* 不管用 */
+	font-size : 18px;
+	height: 25px;
+}
+.x-grid-record-highbluedid td div{
+	background-color : #b8cce4;
+	padding: 10px 5px 18px 5px;
+	color:black;
+	font-size : 18px;
+	text-align : left;
+	height: 25px;
+}

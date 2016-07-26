@@ -10,6 +10,7 @@ using Infragistics.Win.Misc;
 using com.ccf.bip.framework.form.helper;
 using System.IO;
 using com.ccf.bip.framework.util;
+using MetroFramework.Controls;
 
 namespace com.ccf.bip.framework.form.control
 {
@@ -30,7 +31,7 @@ namespace com.ccf.bip.framework.form.control
 
         private UltraGroupBox group;
         private Panel picPanel, btnPanel;
-        private Button btnOk, btnCancel;
+        private MetroButton btnOk, btnCancel;
         private MouseHook mouseHook;
 
         private PictureBox lastChoosePictureBox = null,picCheck = null;
@@ -61,7 +62,7 @@ namespace com.ccf.bip.framework.form.control
             btnPanel.BackColor = Color.Transparent;
             group.Controls.Add(btnPanel);
 
-            btnOk = new Button();
+            btnOk = new MetroButton();
             btnOk.Text = "确定";
             btnOk.Left = 80;
             btnOk.Top = 10;
@@ -70,7 +71,7 @@ namespace com.ccf.bip.framework.form.control
             btnOk.Click += new EventHandler(btnOk_Click);
             btnPanel.Controls.Add(btnOk);
 
-            btnCancel = new Button();
+            btnCancel = new MetroButton();
             btnCancel.Text = "取消";
             btnCancel.Left = 150;
             btnCancel.Top = 10;

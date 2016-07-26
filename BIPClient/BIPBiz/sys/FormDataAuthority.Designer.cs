@@ -51,7 +51,7 @@
             Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn16 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("POST_ID");
             Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn17 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("ORGANIZATION_NAME");
             Infragistics.Win.UltraWinGrid.UltraGridColumn ultraGridColumn18 = new Infragistics.Win.UltraWinGrid.UltraGridColumn("UnboundColumn2", 0);
-            Infragistics.Win.Appearance appearance17 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance2 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance8 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance9 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance10 = new Infragistics.Win.Appearance();
@@ -68,7 +68,6 @@
             this.ultraGrid1 = new Infragistics.Win.UltraWinGrid.UltraGrid();
             this.dataSet1 = new System.Data.DataSet();
             this.dataTable1 = new System.Data.DataTable();
-            this.dataTable2 = new System.Data.DataTable();
             this.dataColumn1 = new System.Data.DataColumn();
             this.dataColumn2 = new System.Data.DataColumn();
             this.dataColumn3 = new System.Data.DataColumn();
@@ -76,6 +75,7 @@
             this.dataColumn5 = new System.Data.DataColumn();
             this.dataColumn6 = new System.Data.DataColumn();
             this.dataColumn7 = new System.Data.DataColumn();
+            this.dataTable2 = new System.Data.DataTable();
             this.dataColumn10 = new System.Data.DataColumn();
             this.dataColumn11 = new System.Data.DataColumn();
             this.dataColumn12 = new System.Data.DataColumn();
@@ -83,12 +83,12 @@
             this.dataColumn14 = new System.Data.DataColumn();
             this.dataColumn15 = new System.Data.DataColumn();
             this.dataColumn17 = new System.Data.DataColumn();
-            this.cbtOrg = new com.ccf.bip.framework.form.control.ComboBoxTree();
-            this.label3 = new System.Windows.Forms.Label();
+            this.dataColumn8 = new System.Data.DataColumn();
             this.ultraGroupBox2 = new Infragistics.Win.Misc.UltraGroupBox();
             this.txtPostName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataColumn8 = new System.Data.DataColumn();
+            this.cbtOrg = new com.ccf.bip.framework.form.control.ComboBoxTree();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ultraGroupBox1)).BeginInit();
             this.ultraGroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ultraTreeFun)).BeginInit();
@@ -308,8 +308,8 @@
             ultraGridColumn16,
             ultraGridColumn17,
             ultraGridColumn18});
-            appearance17.BackColor = System.Drawing.Color.Blue;
-            ultraGridBand2.Override.HeaderAppearance = appearance17;
+            appearance2.BackColor = System.Drawing.Color.Blue;
+            ultraGridBand2.Override.HeaderAppearance = appearance2;
             ultraGridBand2.RowLayoutStyle = Infragistics.Win.UltraWinGrid.RowLayoutStyle.ColumnLayout;
             this.ultraGrid1.DisplayLayout.BandsSerializer.Add(ultraGridBand1);
             this.ultraGrid1.DisplayLayout.BandsSerializer.Add(ultraGridBand2);
@@ -386,23 +386,6 @@
                         "POST_ID"}, false)});
             this.dataTable1.TableName = "Table1";
             // 
-            // dataTable2
-            // 
-            this.dataTable2.Columns.AddRange(new System.Data.DataColumn[] {
-            this.dataColumn10,
-            this.dataColumn11,
-            this.dataColumn12,
-            this.dataColumn13,
-            this.dataColumn14,
-            this.dataColumn15,
-            this.dataColumn17,
-            this.dataColumn8});
-            this.dataTable2.Constraints.AddRange(new System.Data.Constraint[] {
-            new System.Data.ForeignKeyConstraint("Relation1", "Table1", new string[] {
-                        "POST_ID"}, new string[] {
-                        "POST_ID"}, System.Data.AcceptRejectRule.None, System.Data.Rule.Cascade, System.Data.Rule.Cascade)});
-            this.dataTable2.TableName = "Table2";
-            // 
             // dataColumn1
             // 
             this.dataColumn1.ColumnName = "POST_ID";
@@ -437,6 +420,23 @@
             this.dataColumn7.Caption = "自定义";
             this.dataColumn7.ColumnName = "FILTERCUSTOM";
             // 
+            // dataTable2
+            // 
+            this.dataTable2.Columns.AddRange(new System.Data.DataColumn[] {
+            this.dataColumn10,
+            this.dataColumn11,
+            this.dataColumn12,
+            this.dataColumn13,
+            this.dataColumn14,
+            this.dataColumn15,
+            this.dataColumn17,
+            this.dataColumn8});
+            this.dataTable2.Constraints.AddRange(new System.Data.Constraint[] {
+            new System.Data.ForeignKeyConstraint("Relation1", "Table1", new string[] {
+                        "POST_ID"}, new string[] {
+                        "POST_ID"}, System.Data.AcceptRejectRule.None, System.Data.Rule.Cascade, System.Data.Rule.Cascade)});
+            this.dataTable2.TableName = "Table2";
+            // 
             // dataColumn10
             // 
             this.dataColumn10.ColumnName = "EMPLOYEE_ID";
@@ -470,26 +470,10 @@
             // 
             this.dataColumn17.ColumnName = "POST_ID";
             // 
-            // cbtOrg
+            // dataColumn8
             // 
-            this.cbtOrg.AbsoluteChildrenSelectableOnly = true;
-            this.cbtOrg.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.cbtOrg.BranchSeparator = ".";
-            this.cbtOrg.Imagelist = null;
-            this.cbtOrg.Location = new System.Drawing.Point(93, 31);
-            this.cbtOrg.Name = "cbtOrg";
-            this.cbtOrg.Size = new System.Drawing.Size(154, 22);
-            this.cbtOrg.TabIndex = 14;
-            this.cbtOrg.Value = "";
-            // 
-            // label3
-            // 
-            this.label3.Location = new System.Drawing.Point(25, 31);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 19);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "组织机构：";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.dataColumn8.Caption = "组织名称";
+            this.dataColumn8.ColumnName = "ORGANIZATION_NAME";
             // 
             // ultraGroupBox2
             // 
@@ -521,10 +505,26 @@
             this.label1.Text = "岗位名称：";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // dataColumn8
+            // cbtOrg
             // 
-            this.dataColumn8.Caption = "组织名称";
-            this.dataColumn8.ColumnName = "ORGANIZATION_NAME";
+            this.cbtOrg.AbsoluteChildrenSelectableOnly = true;
+            this.cbtOrg.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cbtOrg.BranchSeparator = ".";
+            this.cbtOrg.Imagelist = null;
+            this.cbtOrg.Location = new System.Drawing.Point(93, 31);
+            this.cbtOrg.Name = "cbtOrg";
+            this.cbtOrg.Size = new System.Drawing.Size(154, 22);
+            this.cbtOrg.TabIndex = 14;
+            this.cbtOrg.Value = "";
+            // 
+            // label3
+            // 
+            this.label3.Location = new System.Drawing.Point(25, 31);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 19);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "组织机构：";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // FormDataAuthority
             // 

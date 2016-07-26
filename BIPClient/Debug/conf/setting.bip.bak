@@ -1,0 +1,58 @@
+﻿{
+    "hotkey": [
+        {
+            "key": "relogin",
+            "value": "010r"
+        },
+        {
+            "key": "lock",
+            "value": "010l"
+        },
+        {
+            "key": "fun1",
+            "value": "0101"
+        },
+        {
+            "key": "fun2",
+            "value": "0102"
+        },
+        {
+            "key": "fun3",
+            "value": "0103"
+        },
+        {
+            "key": "fun4",
+            "value": "0104"
+        },
+        {
+            "key": "fun5",
+            "value": "0105"
+        },
+        {
+            "key": "fun6",
+            "value": "0106"
+        },
+        {
+            "key": "fun7",
+            "value": "0107"
+        },
+        {
+            "key": "fun8",
+            "value": "0108"
+        }
+    ],
+    "base": {
+        "hisFlag": "1",
+        "history": [
+            {
+                "formId": "123",
+                "formName": "abc"
+            },
+            {
+                "formId": "1243",
+                "formName": "ab22c"
+            }
+        ],
+        "hisNum": 15
+    }
+}

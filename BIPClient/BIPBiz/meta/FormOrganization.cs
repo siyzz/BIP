@@ -15,6 +15,7 @@ using com.ccf.bip.framework.server;
 using com.ccf.bip.biz.metadata.dictionary.mapper;
 using com.ccf.bip.biz.metadata.employee.mapper;
 using com.ccf.bip.framework.form.helper;
+using MetroFramework;
 
 namespace com.ccf.bip.biz.meta
 {
@@ -130,11 +131,11 @@ namespace com.ccf.bip.biz.meta
             {
                 if (node.Nodes.Count > 0)
                 {
-                    MessageBox.Show("请先删除下级组织！");
+                    MetroMessageBox.Show(this,"请先删除下级组织！");
                     return;
                 }
                 SysOrganization org = node.Tag as SysOrganization;
-                if (MessageBox.Show("是否确定删除该组织？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MetroMessageBox.Show(this,"是否确定删除该组织？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     this.Update(Globals.ORGANIZATION_SERVICE_NAME, "delete", new object[] { org.OrganizationId });
                 }

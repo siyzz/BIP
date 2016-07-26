@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         version="3.0">
+    <!-- ********** SpringMVC配置 *********** -->
+    <servlet>
+        <servlet-name>SpringMVC</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath*:resource/config/spring-mvc.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+        <async-supported>true</async-supported>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SpringMVC</servlet-name>
+        <url-pattern>*.do</url-pattern>
+    </servlet-mapping>
+    <!--***********  批量上传文件servlet   **************  -->
+    <!-- 实现大批量文件上传 -->
+    <servlet>
+        <servlet-name>FileUploadServlet</servlet-name>
+        <servlet-class>com.fahon.mes.app.action.doc.FileUploasdServlet</servlet-class>
+        <init-param>
+            <param-name>fileSizeLimit</param-name>
+            <param-value>1*1024*1024</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FileUploadServlet</servlet-name>
+        <url-pattern>/FileUploadServlet</url-pattern>
+    </servlet-mapping>
+    <!-- ********** spring-mybatis配置文件，属于applicationContext的xml文件 *********** -->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath*:resource/config/applicationContext.xml</param-value>
+    </context-param>
+    <!-- 乱码过滤 -->
+    <filter>
+        <filter-name>encodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <async-supported>true</async-supported>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <!-- 当request中已经被指定了一个字符集的时候是否再将用endcoding对应的字符集设置到request中去。 举个例子来说明，假如说过滤器就像上面那样被配置到web.xml了，
+            当请求被提交之后，过滤器会判断request.getCharacterEncoding()是否为null， 如果是null那么就会进行request.setCharacterEncoding("UTF-8")的操作，如果不是null那么过滤器什么也不会做 -->
+        <init-param>
+            <param-name>forceEncoding</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>encodingFilter</filter-name>
+        <url-pattern>*.do</url-pattern>
+    </filter-mapping>
+    <!-- 自动装配ApplicationContext的配置信息，也就是上文的spring-mybatis配置文件 -->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+    <!-- 防止内存泄露 ,Spring可能会自己处理，这里防止意外 -->
+    <listener>
+        <listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
+    </listener>
+
+    <!-- ********** session时长控制 30min *********** -->
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+    <!-- 初始页 -->
+    <welcome-file-list>
+        <welcome-file>/jsp/login.jsp</welcome-file>
+    </welcome-file-list>
+</web-app>

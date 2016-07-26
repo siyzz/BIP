@@ -12,6 +12,7 @@ using Infragistics.Win.UltraWinTree;
 using com.ccf.bip.framework.core;
 using com.ccf.bip.framework.form.helper;
 using System.Collections;
+using MetroFramework;
 
 namespace com.ccf.bip.biz.sys
 {
@@ -65,7 +66,7 @@ namespace com.ccf.bip.biz.sys
                 string roleId = (ultraTreeRole.ActiveNode.Tag as SysRole).RoleId;
                 ArrayList funList = GetAuthorFunctionList(ultraTreeAuthor);
                 this.Update(Globals.ROLE_SERVICE_NAME, "authorize", new object[] { roleId, funList });
-                MessageBox.Show("保存成功！");
+                MetroMessageBox.Show(this,"保存成功！");
             }
         }
 
@@ -245,7 +246,8 @@ namespace com.ccf.bip.biz.sys
             UltraTreeNode node = ultraTreeAuthor.ActiveNode;
             if (node != null)
             {
-                node.Reposition(node.Parent != null ? node.Parent.Nodes : ultraTreeAuthor.Nodes, (node.Index + 1 < node.Parent.Nodes.Count - 1 ? node.Index + 1 : node.Parent.Nodes.Count - 1));
+                TreeNodesCollection parentNodes = (node.Parent != null ? node.Parent.Nodes : ultraTreeAuthor.Nodes);
+                node.Reposition(parentNodes, (node.Index + 1 < parentNodes.Count - 1 ? node.Index + 1 : parentNodes.Count - 1));
                 ultraTreeAuthor.ActiveNode = node;
             }
         }

@@ -1,5 +1,7 @@
 package com.ccf.bip.framework.server.hessian;
 
+import javax.servlet.http.HttpServletRequest;
+
 import com.ccf.bip.framework.core.ParameterInfo;
 import com.ccf.bip.framework.core.ReturnInfo;
 

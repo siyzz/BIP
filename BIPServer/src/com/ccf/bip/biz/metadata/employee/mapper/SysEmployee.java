@@ -31,6 +31,8 @@ public class SysEmployee implements Serializable{
 
     private byte[] photo;
 
+    private String posts;
+
     public String getEmployeeId() {
         return employeeId;
     }
@@ -134,7 +136,15 @@ public class SysEmployee implements Serializable{
     public void setPhoto(byte[] photo) {
         this.photo = photo;
     }
-    
+
+    public String getPosts() {
+        return posts;
+    }
+
+    public void setPosts(String posts) {
+        this.posts = posts;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -154,6 +164,7 @@ public class SysEmployee implements Serializable{
         sb.append(", address=").append(address);
         sb.append(", remark=").append(remark);
         sb.append(", photo=").append(photo);
+        sb.append(", posts=").append(posts);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

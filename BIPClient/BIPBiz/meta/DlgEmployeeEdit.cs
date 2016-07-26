@@ -16,10 +16,11 @@ using System.Text.RegularExpressions;
 using System.Drawing.Imaging;
 using com.ccf.bip.framework.util;
 using com.ccf.bip.biz.metadata.org.mapper;
+using MetroFramework.Forms;
 
 namespace com.ccf.bip.biz.meta
 {
-    public partial class DlgEmployeeEdit : BipForm
+    public partial class DlgEmployeeEdit : BipMetroForm
     {
         private SysEmployee _employee;
 

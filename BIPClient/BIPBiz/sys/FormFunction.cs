@@ -14,6 +14,7 @@ using com.ccf.bip.framework.core;
 using System.Collections;
 using System.IO;
 using com.ccf.bip.framework.form.helper;
+using MetroFramework;
 
 namespace com.ccf.bip.biz.sys
 {
@@ -117,7 +118,7 @@ namespace com.ccf.bip.biz.sys
                     {
                         if (ultraTree1.ActiveNode == null || !(ultraTree1.ActiveNode.Tag as SysFunction).FunctionType.Equals("1011"))
                         {
-                            MessageBox.Show("请在功能菜单树选择需要配置的系统！");
+                            MetroMessageBox.Show(this,"请在功能菜单树选择需要配置的系统！");
                             return;
                         }
                         fun.FunctionId = BipGuid.Guid;
@@ -134,7 +135,7 @@ namespace com.ccf.bip.biz.sys
                     {
                         if (ultraTree1.ActiveNode == null || !(ultraTree1.ActiveNode.Tag as SysFunction).FunctionType.Equals("1012"))
                         {
-                            MessageBox.Show("请在功能菜单树选择需要配置的子系统！");
+                            MetroMessageBox.Show(this,"请在功能菜单树选择需要配置的子系统！");
                             return;
                         }
                         fun.FunctionId = BipGuid.Guid;
@@ -151,7 +152,7 @@ namespace com.ccf.bip.biz.sys
                     {
                         if (ultraTree1.ActiveNode == null || !(ultraTree1.ActiveNode.Tag as SysFunction).FunctionType.Equals("1013"))
                         {
-                            MessageBox.Show("请在功能菜单树选择需要配置的模块！");
+                            MetroMessageBox.Show(this,"请在功能菜单树选择需要配置的模块！");
                             return;
                         }
                         fun.FunctionId = BipGuid.Guid;
@@ -210,7 +211,7 @@ namespace com.ccf.bip.biz.sys
                     {
                         if (ultraTree1.ActiveNode == null || !(ultraTree1.ActiveNode.Tag as SysFunction).FunctionType.Equals("1011"))
                         {
-                            MessageBox.Show("请在功能菜单树选择需要修改的系统！");
+                            MetroMessageBox.Show(this,"请在功能菜单树选择需要修改的系统！");
                             return;
                         }
                         fun = ultraTree1.ActiveNode.Tag as SysFunction;
@@ -225,7 +226,7 @@ namespace com.ccf.bip.biz.sys
                     {
                         if (ultraTree1.ActiveNode == null || !(ultraTree1.ActiveNode.Tag as SysFunction).FunctionType.Equals("1012"))
                         {
-                            MessageBox.Show("请在功能菜单树选择需要修改的子系统！");
+                            MetroMessageBox.Show(this,"请在功能菜单树选择需要修改的子系统！");
                             return;
                         }
                         fun = ultraTree1.ActiveNode.Tag as SysFunction;
@@ -239,7 +240,7 @@ namespace com.ccf.bip.biz.sys
                     {
                         if (ultraTree1.ActiveNode == null || !(ultraTree1.ActiveNode.Tag as SysFunction).FunctionType.Equals("1013"))
                         {
-                            MessageBox.Show("请在功能菜单树选择需要修改的模块！");
+                            MetroMessageBox.Show(this,"请在功能菜单树选择需要修改的模块！");
                             return;
                         }
                         fun = ultraTree1.ActiveNode.Tag as SysFunction;
@@ -253,7 +254,7 @@ namespace com.ccf.bip.biz.sys
                     {
                         if (ultraTree1.ActiveNode == null || !(ultraTree1.ActiveNode.Tag as SysFunction).FunctionType.Equals("1014"))
                         {
-                            MessageBox.Show("请在功能菜单树选择需要修改的界面！");
+                            MetroMessageBox.Show(this,"请在功能菜单树选择需要修改的界面！");
                             return;
                         }
                         fun = ultraTree1.ActiveNode.Tag as SysFunction;
@@ -299,11 +300,11 @@ namespace com.ccf.bip.biz.sys
                 string functionId = ultraTree1.ActiveNode.Key;
                 if (ultraTree1.ActiveNode.Nodes.Count > 0)
                 {
-                    MessageBox.Show("请先删除下级菜单！");
+                    MetroMessageBox.Show(this,"请先删除下级菜单！");
                     return;
                 }
 
-                if (MessageBox.Show("是否确认删除" + ultraTree1.ActiveNode.Text + "?", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MetroMessageBox.Show(this,"是否确认删除" + ultraTree1.ActiveNode.Text + "?", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     this.Update(Globals.FUNCTION_SERVICE_NAME, "delete", new object[] { functionId });
                     UltraTreeNode pNode = ultraTree1.ActiveNode.Parent;
@@ -328,15 +329,15 @@ namespace com.ccf.bip.biz.sys
             bool ret = false;
             if(String.IsNullOrEmpty(txtSystemName.Text.Trim()))
             {
-                MessageBox.Show("请输入系统名称！");
+                MetroMessageBox.Show(this,"请输入系统名称！");
             }
             else if(String.IsNullOrEmpty(txtSystemUrl.Text.Trim()))
             {
-                MessageBox.Show("请输入系统服务地址！");
+                MetroMessageBox.Show(this,"请输入系统服务地址！");
             }
             else if (String.IsNullOrEmpty(txtSystemKey.Text.Trim()))
             {
-                MessageBox.Show("请输入系统关键字！");
+                MetroMessageBox.Show(this,"请输入系统关键字！");
             }
             else
             {
@@ -351,11 +352,11 @@ namespace com.ccf.bip.biz.sys
             bool ret = false;
             if (String.IsNullOrEmpty(txtSubSysName.Text.Trim()))
             {
-                MessageBox.Show("请输入系统名称！");
+                MetroMessageBox.Show(this,"请输入系统名称！");
             }
             else if (String.IsNullOrEmpty(txtSubSysKey.Text.Trim()))
             {
-                MessageBox.Show("请输入系统关键字！");
+                MetroMessageBox.Show(this,"请输入系统关键字！");
             }
             else
             {
@@ -369,11 +370,11 @@ namespace com.ccf.bip.biz.sys
             bool ret = false;
             if (String.IsNullOrEmpty(txtModuleName.Text.Trim()))
             {
-                MessageBox.Show("请输入模块名称！");
+                MetroMessageBox.Show(this,"请输入模块名称！");
             }
             else if (String.IsNullOrEmpty(txtModuleKey.Text.Trim()))
             {
-                MessageBox.Show("请输入模块关键字！");
+                MetroMessageBox.Show(this,"请输入模块关键字！");
             }
             else
             {
@@ -387,19 +388,19 @@ namespace com.ccf.bip.biz.sys
             bool ret = false;
             if (ucbFormType.SelectedIndex < 0)
             {
-                MessageBox.Show("请选择界面类型！");
+                MetroMessageBox.Show(this,"请选择界面类型！");
             }
             else if (String.IsNullOrEmpty(uteFormAssembly.Text.Trim()))
             {
-                MessageBox.Show("请选择界面所属程序集！");
+                MetroMessageBox.Show(this,"请选择界面所属程序集！");
             }
             else if(String.IsNullOrEmpty(txtFormUrl.Text.Trim()))
             {
-                MessageBox.Show("请选择界面引用！");
+                MetroMessageBox.Show(this,"请选择界面引用！");
             }
             else if (String.IsNullOrEmpty(txtFormCaption.Text.Trim()))
             {
-                MessageBox.Show("请输入界面标题！");
+                MetroMessageBox.Show(this,"请输入界面标题！");
             }
             else
             {
@@ -419,12 +420,12 @@ namespace com.ccf.bip.biz.sys
             if (String.IsNullOrEmpty(key))
             {
                 ret = false;
-                MessageBox.Show("请输入按钮KEY值！");
+                MetroMessageBox.Show(this,"请输入按钮KEY值！");
             }
             else if (String.IsNullOrEmpty(caption))
             {
                 ret = false;
-                MessageBox.Show("请输入按钮名称！");
+                MetroMessageBox.Show(this,"请输入按钮名称！");
             }
             else
             {
@@ -433,7 +434,7 @@ namespace com.ccf.bip.biz.sys
                     if (r.Cells["Key"].Value.ToString().Equals(key) && String.IsNullOrEmpty(r.Cells["FunctionId"].Text) && r.Index != 0)
                     {
                         ret = false;
-                        MessageBox.Show("同一界面的按钮不能输入重复的KEY值！");
+                        MetroMessageBox.Show(this,"同一界面的按钮不能输入重复的KEY值！");
                         break;
                     }
                 }
@@ -588,7 +589,7 @@ namespace com.ccf.bip.biz.sys
             {
                 string key = ultraGridRowEditTemplate1.Row.Cells["Key"].Text;
                 this.ugcpKey.Enabled = String.IsNullOrEmpty(key);
-                this.btnTemplateDel.Visible = !String.IsNullOrEmpty(key);
+                this.metroButtonDel.Visible = !String.IsNullOrEmpty(key);
 
                 this.pictureBox1.Image = !String.IsNullOrEmpty(this.ugcpImage.Text) ? Image.FromFile("./resource/image/button/" + this.ugcpImage.Text + ".png") : null;
             }
@@ -607,7 +608,7 @@ namespace com.ccf.bip.biz.sys
                 }
                 else
                 {
-                    MessageBox.Show("只能选择默认路径下的图片！");
+                    MetroMessageBox.Show(this,"只能选择默认路径下的图片！");
                 }
             }           
         }
@@ -633,7 +634,7 @@ namespace com.ccf.bip.biz.sys
                         }
                         else
                         {
-                            MessageBox.Show("只能选择默认路径下的动态链接库文件！");
+                            MetroMessageBox.Show(this,"只能选择默认路径下的动态链接库文件！");
                         }
                     }
                     break;

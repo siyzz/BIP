@@ -76,7 +76,7 @@ namespace com.ccf.bip.frame.style
         /// 界面背景颜色
         /// </summary>
         private static readonly Color _back =
-            Color.FromArgb(140, 136, 255);
+            Color.FromArgb(173, 216, 230);
        /// <summary>
        /// 活动窗口的颜色
        /// </summary>

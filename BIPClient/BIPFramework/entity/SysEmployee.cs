@@ -119,5 +119,13 @@ namespace com.ccf.bip.biz.metadata.employee.mapper
             get { return photo; }
             set { photo = value; }
         }
+
+        private string posts;
+
+        public string Posts
+        {
+            get { return posts; }
+            set { posts = value; }
+        }
     }
 }
